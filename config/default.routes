@@ -1,0 +1,6 @@
+use ru.iostd.rescb
+
+GET  $/assets/(.*) asset(1)
+
+
+GET  $/     view("comming_soon.html")

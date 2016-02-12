@@ -1,0 +1,11 @@
+2016-02-12 20:29:12,290 INFO FugaApp - Fuga Framework 0.3.2-SNAPSHOT
+2016-02-12 20:29:12,298 INFO Router - Routes loaded from: config/default.routes
+2016-02-12 20:29:12,298 INFO Configuration - Configuration loaded from: config/default.properties
+2016-02-12 20:29:12,303 INFO HttpServer - Starting up HTTP server at http://localhost:8080/
+2016-02-12 20:29:17,482 DEBUG HttpServerHandler - Access from /127.0.0.1:44249: localhost:8080/
+2016-02-12 20:29:18,071 DEBUG HttpServerHandler - Access from /127.0.0.1:44249: localhost:8080/favicon.ico
+2016-02-12 20:29:20,321 DEBUG HttpServerHandler - Access from /127.0.0.1:44249: localhost:8080/
+2016-02-12 20:29:22,644 DEBUG HttpServerHandler - Access from /127.0.0.1:44249: localhost:8080/
+2016-02-12 20:29:23,186 DEBUG HttpServerHandler - Access from /127.0.0.1:44249: localhost:8080/
+2016-02-12 20:29:23,398 DEBUG HttpServerHandler - Access from /127.0.0.1:44249: localhost:8080/
+2016-02-12 20:29:23,649 DEBUG HttpServerHandler - Access from /127.0.0.1:44249: localhost:8080/
