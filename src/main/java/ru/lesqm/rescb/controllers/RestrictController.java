@@ -13,7 +13,7 @@ public class RestrictController extends Controller {
     public Response restrict() {
         Map<String, String> headers = ctx.getRequest().getHeaders();
         
-        if(!headers.containsKey("Authorization") || !headers.get("Authorization").equals("Basic YWRtaW46aGFyZGRheQ==")) {
+        if(!headers.containsKey("Authorization") || !headers.get("Authorization").equals("Basic YWRtaW46cmVzY2I2NTM5")) {
             return restrictedHeaders();
         }
         
