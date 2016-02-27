@@ -1,6 +1,22 @@
-use ru.iostd.rescb
+use ru.lesqm.rescb.controllers
 
 GET  $/assets/(.*) asset(1)
 
+GET  $/                         LangController.noLangOnUrl()
+GET  $/(ru|en)                  LangController.noSlashOnLang(1)
+GET  $/(ru|en)/                 LangController.setLang(1)
 
-GET  $/     view("comming_soon.html")
+
+GET  $/(ru|en)/(main.html)?             view("main.html")
+
+GET  RestrictController.restrict()
+
+GET  $/(ru|en)/submissions.html         view("submissions.html")
+GET  $/(ru|en)/scientific-program.html  view("scientific-program.html")
+GET  $/(ru|en)/registration-fee.html    view("registration-fee.html")
+GET  $/(ru|en)/organizers.html          view("organizers.html")
+GET  $/(ru|en)/offer-for-sponsors.html  view("offer-for-sponsors.html")
+GET  $/(ru|en)/location.html            view("location.html")
+GET  $/(ru|en)/important-dates.html     view("important-dates.html")
+GET  $/(ru|en)/contacts.html            view("contacts.html")
+

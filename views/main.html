@@ -1,0 +1,37 @@
+@extends _base.html
+
+<% block content %>
+<div id="myCarousel" style="width: 800px;" class="carousel slide">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active"><img class="first-slide" src="@{asset('i/vl/1.jpg')}" alt="Владивосток"></div>
+        <div class="item"><img class="second-slide" src="@{asset('i/vl/2.jpg')}" alt="Владивосток"></div>
+        <div class="item"><img class="third-slide" src="@{asset('i/vl/3.jpg')}" alt="Владивосток"></div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Назад</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Далее</span>
+    </a>
+</div>
+<p>Уважаемые коллеги!<br /><br />
+    <b>Дальневосточный федеральный университет совместно</b> с <b>Институтом химии ДВО РАН</b> и <b>Институтом неорганической химии им. А.В. Николаева СО РАН</b><br /><br />
+
+    приглашает Всех желающих, работающих в области применения рентгеновских и электронных спектров и родственных методов для изучения физики конденсированного состояния, принять участие в работе <b>XXII Всероссийской конференции c международным участием «Рентгеновские и электронные спектры и химическая связь» (РЭСХС-22)</b> проводимой в кампусе <b>Дальневосточного федерального университета</b> 20-23 сентября 2016 года<br /><br />
+
+    XXII Всероссийская конференция «Рентгеновские и электронные спектры и химическая связь» является очередной в цикле Всероссийских конференций, посвященных  применению и развитию рентгеновских и электронных методов исследования новых химических соединений и перспективных материалов. Последние две конференции проходили в 2010 и 2013 годах в Новосибирском научном центре  (РЭСХС-20, 21).<br /><br />
+
+    Генеральный спонсор конференции: <br /><br />
+    Официальный спонсор конференции: <br /><br />
+    Спонсоры конференции:<br /><br />
+    При финансовой поддержке РОССИЙСКОГО ФОНДА ФУНДАМЕНТАЛЬНЫХ ИССЛЕДОВАНИЙ
+</p>
+
+<% endblock %>

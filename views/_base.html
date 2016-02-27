@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>РЭСХС</title>
+
+        <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <link href="@{asset('css/bootstrap.min.css')}" rel="stylesheet">
+        <link href="@{asset('css/common.css')}" rel="stylesheet">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="@{asset('js/bootstrap.min.js')}"></script>
+
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        
+        <% 
+            
+            this.lang = ctx.getSession().get('lang');
+        
+        %>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 rescb-head-1"><a href="@{that(this.lang, '')}"><img src="@{asset('i/rescb-logo.png')}" width="20%" /></a></div>
+                <div class="col-md-2 rescb-lang">
+                    <a href="@{that('ru', '')}"><img src="@{asset('i/ru.svg')}" alt="Русский" width="30px" /></a>
+                    <a href="@{that('en', '')}"><img src="@{asset('i/gb.svg')}" alt="English" width="30px" /></a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid rescb-head-color">
+            <div class="container">
+                <div class="row rescb-head-2">	
+                    <div class="col-md-10">
+                        <h3>XXII Всероссийская конференция с международным участием<br />
+                            «Рентгеновские и электронныеспектры и химическаясвязь»<br />
+                            20-23 сентября 2016 года, Владивосток, Россия</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-3 rescb-menu-left rescb-border">
+                            <a href="@{that(this.lang, 'main.html')}">Общая информация</a> <!-- DONE -->
+                            <a href="@{that(this.lang, 'organizers.html')}">Организаторы</a> <!-- DONE -->
+                            <a href="@{that(this.lang, 'scientific-program.html')}">Научная программа</a> <!-- DONE -->
+                            <a><s>Программа и Труды конференции</s></a>
+                            <a href="@{that(this.lang, 'location.html')}">Место проведения</a>
+                            <a href="@{that(this.lang, 'registration-fee.html')}">Регистрационный взнос</a>
+                            <a href="@{that(this.lang, 'submissions.html')}">Представление материалов</a>
+                            <a href="@{that(this.lang, 'offer-for-sponsors.html')}">Предложения для спонсоров</a>
+                            <a href="@{that(this.lang, 'important-dates.html')}">Важные даты</a>
+                            <a href="@{that(this.lang, 'contacts.html')}">Контактная информация</a>
+                            <a><s>Регистрация/Вход</s></a>
+                        </div>
+                        <div class="col-md-9 rescb-content">
+                            <% block content %><% endblock %>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid rescb-footer-color">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 col-md-offset-3 rescb-footer">РЭСХС-22 © 2016 Дальневосточный Федеральный Университет</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
