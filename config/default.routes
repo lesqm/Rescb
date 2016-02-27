@@ -1,16 +1,17 @@
 use ru.lesqm.rescb.controllers
 
-GET  $/assets/(.*) asset(1)
+GET  $/assets/(.*)  asset(1)
 
-GET  $/                         LangController.noLangOnUrl()
+GET  $/   view("comming_soon.html")
+
+GET  RestrictController.restrict()
+
+// GET  $/                         LangController.noLangOnUrl()
 GET  $/(ru|en)                  LangController.noSlashOnLang(1)
 GET  $/(ru|en)/                 LangController.setLang(1)
 
 
 GET  $/(ru|en)/(main.html)?             view("main.html")
-
-GET  RestrictController.restrict()
-
 GET  $/(ru|en)/submissions.html         view("submissions.html")
 GET  $/(ru|en)/scientific-program.html  view("scientific-program.html")
 GET  $/(ru|en)/registration-fee.html    view("registration-fee.html")
