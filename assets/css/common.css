@@ -1,5 +1,5 @@
 BODY { font-family: 'Open Sans'; }
-
+H3 { margin-top: 0px !important; }
 .disabled { cursor: default;
     opacity: 0.65;
     filter: alpha(opacity=65);
@@ -10,15 +10,27 @@ BODY { font-family: 'Open Sans'; }
 	
 .rescb-head-1 { padding: 5px 0 5px 0; }
 .rescb-lang { margin: 30px 0 30px 0;}
-.rescb-lang  A { padding: 0px 10px 0px 0;}
+.rescb-lang  A { display: inline-block; margin: 0px 10px 0px 0;}
+.rescb-lang  A:hover { text-decoration: none; }
+.rescb-lang  A img { padding: 0 0px 3px 0; margin-right: 3px; }
 .rescb-head-color { background-color: #0282C2; }
 .rescb-head-2 { color: #fff; padding: 15px 0 15px 0; }
 .rescb-head-2 h3 { line-height: 35px; }
 
-.rescb-menu-left { padding: 50px 0 0 0; }
-.rescb-menu-left a { display: block; padding: 5px 0 5px 0; }
+.rescb-menu-left { padding: 35px 0 0 0; }
+.rescb-menu-left a { display: block; padding: 7px 0 7px 0; font-size: 16px; }
 .rescb-border { border-right: 1px solid #ddd; min-height: 480px;  }
-.rescb-content { padding: 50px 0 50px 50px; line-height: 25px; }
+.rescb-content { width: 750px; padding: 35px 0 50px 50px; line-height: 25px; }
 
 .rescb-footer-color { background-color: #282C33; }
 .rescb-footer { height: 70px; color: #A6AAAB; font-size: 16px; line-height: 70px; }
+
+	@font-face { font-family: "Rubl Sign"; src: url(http://www.artlebedev.ru/;-)/ruble.eot); }
+    span.rur { font-family: "Rubl Sign"; text-transform: uppercase; // text-transform: none;}    
+    span.rur span { position: absolute; overflow: hidden; width: .45em; height: 1em; margin: .25ex 0 0 -.55em; // display: none; }
+    span.rur span:before { content: '\2013'; }
+.img-filter-gray {	
+	-webkit-filter: grayscale(1); /* Webkit */  
+    filter: gray; /* IE6-9 */  
+    filter: grayscale(1); /* W3C */  
+	}

@@ -1,10 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
     <head>
+		<% 
+            
+            this.lang = ctx.getSession().get('lang');
+        
+        %>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>РЭСХС</title>
+        <title><% if(this.lang === 'ru') { %>XXII Всероссийская конференция с международным участием «РЭСХС»<% } else { %>XXII All Russian conference with the international participation «RESCB»<% } %></title>
 
         <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
@@ -20,19 +25,27 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         
-        <% 
-            
-            this.lang = ctx.getSession().get('lang');
         
-        %>
     </head>
     <body>
         <div class="container">
             <div class="row">
                 <div class="col-md-10 rescb-head-1"><a href="@{that(this.lang, '')}"><img src="@{asset('i/rescb-logo.png')}" width="20%" /></a></div>
                 <div class="col-md-2 rescb-lang">
-                    <a href="@{that('ru', '')}"><img src="@{asset('i/ru.svg')}" alt="Русский" width="30px" /></a>
-                    <a href="@{that('en', '')}"><img src="@{asset('i/gb.svg')}" alt="English" width="30px" /></a>
+                    <a href="@{that('ru', '')}" title="Русский">
+						<% if(this.lang === 'ru') { %>
+							<img src="@{asset('i/ru.png')}" alt="Русский" width="20px" />Рус
+						<% } else { %>
+							<img src="@{asset('i/ru.png')}" class="img-filter-gray" alt="Русский" width="20px" />Рус
+						<% } %>
+					</a>
+                    <a href="@{that('en', '')}" title="English">
+						<% if(this.lang === 'en') { %>
+							<img src="@{asset('i/en.png')}" alt="English" width="20px" />Eng
+						<% } else { %>
+							<img src="@{asset('i/en.png')}" class="img-filter-gray" alt="English" width="20px" />Eng
+						<% } %>
+					</a>
                 </div>
             </div>
         </div>
@@ -40,9 +53,16 @@
             <div class="container">
                 <div class="row rescb-head-2">	
                     <div class="col-md-10">
-                        <h3>XXII Всероссийская конференция с международным участием<br />
-                            «Рентгеновские и электронныеспектры и химическаясвязь»<br />
+                        <h3>
+						<% if(this.lang === 'ru') { %>
+							XXII Всероссийская конференция с международным участием<br />
+                            «Рентгеновские и электронные спектры и химическая связь»<br />
                             20-23 сентября 2016 года, Владивосток, Россия</h3>
+							<% } else { %>
+							XXII <!-- All --> Russian Conference with International Participation<br />
+                            «X-ray and Electronic Spectra and Chemical Bonding»<br />
+                            September 20-23, 2016, Vladivostok, Russia</h3>
+						<% } %>
                     </div>
                 </div>
             </div>
@@ -52,17 +72,17 @@
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-3 rescb-menu-left rescb-border">
-                            <a href="@{that(this.lang, 'main.html')}">Общая информация</a> <!-- DONE -->
-                            <a href="@{that(this.lang, 'organizers.html')}">Организаторы</a> <!-- DONE -->
-                            <a href="@{that(this.lang, 'scientific-program.html')}">Научная программа</a> <!-- DONE -->
-                            <a><s>Программа и Труды конференции</s></a>
-                            <a href="@{that(this.lang, 'location.html')}">Место проведения</a>
-                            <a href="@{that(this.lang, 'registration-fee.html')}">Регистрационный взнос</a>
-                            <a href="@{that(this.lang, 'submissions.html')}">Представление материалов</a>
-                            <a href="@{that(this.lang, 'offer-for-sponsors.html')}">Предложения для спонсоров</a>
-                            <a href="@{that(this.lang, 'important-dates.html')}">Важные даты</a>
-                            <a href="@{that(this.lang, 'contacts.html')}">Контактная информация</a>
-                            <a><s>Регистрация/Вход</s></a>
+                            <a href="@{that(this.lang, 'main')}"><% if(this.lang === 'ru') { %>Общая информация<% } else { %>General<% } %></a>
+                            <a href="@{that(this.lang, 'organizers')}"><% if(this.lang === 'ru') { %>Организаторы<% } else { %>Organizers<% } %></a>
+                            <a href="@{that(this.lang, 'scientific-program')}"><% if(this.lang === 'ru') { %>Научная программа<% } else { %>Science programm<% } %></a>
+                            <a class="disabled"><% if(this.lang === 'ru') { %>Программа и Труды конференции<% } else { %>Programm and conference results<% } %></a>
+                            <a href="@{that(this.lang, 'location')}" <% if(this.lang === 'ru') { %><% } else { %>class="disabled"<% } %> ><% if(this.lang === 'ru') { %>Место проведения<% } else { %>Location<% } %></a>
+                            <a href="@{that(this.lang, 'registration-fee')}" <% if(this.lang === 'ru') { %><% } else { %>class="disabled"<% } %>><% if(this.lang === 'ru') { %>Регистрационный взнос<% } else { %>Registration fee<% } %></a>
+                            <a href="@{that(this.lang, 'submissions')}" <% if(this.lang === 'ru') { %><% } else { %>class="disabled"<% } %>><% if(this.lang === 'ru') { %>Представление материалов<% } else { %>Submissions<% } %></a>
+                            <a href="@{that(this.lang, 'offer-for-sponsors')}"><% if(this.lang === 'ru') { %>Предложения для спонсоров<% } else { %>For sponsors<% } %></a>
+                            <a href="@{that(this.lang, 'important-dates')}"><% if(this.lang === 'ru') { %>Важные даты<% } else { %>Important dates<% } %></a>
+                            <a href="@{that(this.lang, 'contacts')}"><% if(this.lang === 'ru') { %>Контактная информация<% } else { %>Contacts<% } %></a>
+                            <a class="disabled"><% if(this.lang === 'ru') { %>Регистрация/Вход<% } else { %>Sign in/Registration<% } %></a>
                         </div>
                         <div class="col-md-9 rescb-content">
                             <% block content %><% endblock %>
@@ -75,9 +95,19 @@
         <div class="container-fluid rescb-footer-color">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9 col-md-offset-3 rescb-footer">РЭСХС-22 © 2016 Дальневосточный Федеральный Университет</div>
+                    <div class="col-md-9 col-md-offset-3 rescb-footer"><% if(this.lang === 'ru') { %>РЭСХС-22 © 2016 Дальневосточный Федеральный Университет, Владивосток<% } else { %>RESCB-22 © 2016 Far Eastern Federal University, Vladivostok<% } %></title></div>
                 </div>
             </div>
         </div>
     </body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74486928-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </html>

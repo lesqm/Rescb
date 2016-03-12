@@ -1,48 +1,318 @@
 @extends _base.html
 
 <% block content %>
-
+<% if(this.lang === 'ru') { %>
 <p><b>ОРГАНИЗАТОРЫ КОНФЕРЕНЦИИ</b><br />
-    &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Дальневосточный федеральный университет, Владивосток<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Институт химии ДВО РАН, Владивосток<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Институт неорганической химии им. А.В. Николаева СО РАН, Новосибирск<br /><br />
+<table class="table table-bordered table-striped">
+	<tr>
+		<td>Дальневосточный федеральный университет, Владивосток</td>
+	</tr>
+	<tr>
+		<td>Институт химии ДВО РАН, Владивосток</td>
+	</tr>
+	<tr>
+		<td>Институт неорганической химии им. А.В. Николаева СО РАН, Новосибирск</td>
+	</tr>
+</table>
 
-    <b>ПРОГРАММНЫЙ КОМИТЕТ</b><br />
+    <b>ПРОГРАММНЫЙ КОМИТЕТ</b><br /><br />
     <b>Председатель</b><br />
-    Сергиенко В.И., д.х.н., академик РАН, ИХ ДВО РАН, Владивосток<br /><br />
-
-    Вовна В.И., д.х.н., ДВФУ, Владивосток<br />
-    БоронинА.И., д.ф.-м.н., ИК СО РАН, Новосибирск<br />
-    Виноградов А.С., д.ф.-м.н., профессор, СПбГУ, Санкт-Петербург<br />
-    Домашевская Э.П., д.ф.-м.н., профессор, ВГУ, Воронеж<br />
-    Игнатьева Л.Н., д.х.н., ИХ ДВО РАН, Владивосток<br />
-    Кочур А.Г., д.ф.-м.н., профессор, РГУПС, Ростов-на-Дону<br />
-    Курмаев Э.З., д.ф.-м.н., ИФМ УрО РАН, Екатеринбург<br />
-    Мазалов Л.Н., д.ф.-м.н., профессор, ИНХ СО РАН, Новосибирск<br />
-    Окотруб А.В., д.ф.-м.н., ИНХ СО РАН, Новосибирск<br />
-    Солдатов А.В., д.ф.-м.н., Южный федеральный университет, Ростов-на-Дону<br />
-    Тетерин Ю.А., д.ф.-м.н., РНЦ «Курчатовский институт», Москва<br />
-    Чижов Ю.В., д.ф.-м.н., профессор, СПбГУ, Санкт-Петербург<br />
-    Шабанова И.Н., д.ф.-м.н., ФТИ УрО РАН, Ижевск<br />
-    Шикин А.М., д.ф.-м.н., профессор, СПбГУ, Санкт-Петербург<br />
-    Яржемский В.Г., д.х.н., внс, ИОНХ РАН, Москва<br /><br />
-
-    <b>ОРГАНИЗАЦИОННЫЙ КОМИТЕТ</b><br />
+    Сергиенко Валентин Иванович, д.х.н., академик РАН, ИХ ДВО РАН, Владивосток<br /><br />
+<table class="table table-bordered table-striped">
+	<tr>
+		<td>Вовна В.И.</td>
+		<td>д.х.н., профессор</td>
+		<td>ДВФУ, Владивосток</td>
+	</tr>
+	<tr>
+		<td>Боронин А.И.</td>
+		<td>д.ф.-м.н.</td>
+		<td>ИК СО РАН, Новосибирск</td>
+	</tr>
+	<tr>
+		<td>Виноградов А.С.</td>
+		<td>д.ф.-м.н., профессор</td>
+		<td>СПбГУ, Санкт-Петербург</td>
+	</tr>
+	<tr>
+		<td>Домашевская Э.П.</td>
+		<td>д.ф.-м.н., профессор</td>
+		<td>ВГУ, Воронеж</td>
+	</tr>
+	<tr>
+		<td>Игнатьева Л.Н.</td>
+		<td>д.х.н.</td>
+		<td>ИХ ДВО РАН, Владивосток</td>
+	</tr>
+	<tr>
+		<td>Кочур А.Г.</td>
+		<td>д.ф.-м.н., профессор</td>
+		<td>РГУПС, Ростов-на-Дону</td>
+	</tr>
+	<tr>
+		<td>Курмаев Э.З.</td>
+		<td>д.ф.-м.н.</td>
+		<td>ИФМ УрО РАН, Екатеринбург</td>
+	</tr>
+	<tr>
+		<td>Мазалов Л.Н.</td>
+		<td>д.ф.-м.н., профессор</td>
+		<td>ИНХ СО РАН, Новосибирск</td>
+	</tr>
+	<tr>
+		<td>Окотруб А.В.</td>
+		<td>д.ф.-м.н.</td>
+		<td>ИНХ СО РАН, Новосибирск</td>
+	</tr>
+	<tr>
+		<td>Солдатов А.В.</td>
+		<td>д.ф.-м.н.</td>
+		<td>Южный федеральный университет, Ростов-на-Дону</td>
+	</tr>
+	<tr>
+		<td>Тетерин Ю.А.</td>
+		<td>д.ф.-м.н.</td>
+		<td>РНЦ «Курчатовский институт», Москва</td>
+	</tr>
+	<tr>
+		<td>Чижов Ю.В.</td>
+		<td>д.ф.-м.н., профессор</td>
+		<td>СПбГУ, Санкт-Петербург</td>
+	</tr>
+	<tr>
+		<td>Шабанова И.Н.</td>
+		<td>д.ф.-м.н.</td>
+		<td>ФТИ УрО РАН, Ижевск</td>
+	</tr>
+	<tr>
+		<td>Шикин А.М.</td>
+		<td>д.ф.-м.н., профессор</td>
+		<td>СПбГУ, Санкт-Петербург</td>
+	</tr>
+	<tr>
+		<td>Яржемский В.Г.</td>
+		<td>д.х.н., внс</td>
+		<td>ИОНХ РАН, Москва</td>
+	</tr>
+</table>
+    <br />
+	
+    <b>ОРГАНИЗАЦИОННЫЙ КОМИТЕТ</b><br /><br />
     <b>Председатель</b><br />
-    Щека О.Л., д.ф.-м.н., профессор, зам.проректора по науке и инновациям, ДВФУ, Владивосток<br /><br />
+    Щека Олег Леонидович, д.ф.-м.н., профессор, ДВФУ, Владивосток<br /><br />
+<table class="table table-bordered table-striped">
+	<tr>
+		<td>Ступницкая Н.А.</td>
+		<td>зам.проректора по науке и инновациям</td>
+		<td>ДВФУ, Владивосток</td>
+	</tr>
+	<tr>
+		<td>Устинов А.Ю.</td>
+		<td>д.ф.-м.н., профессор, гнс</td>
+		<td>ДВФУ, Владивосток</td>
+	</tr>
+	<tr>
+		<td>Чередниченко А.И.</td>
+		<td>д.ф.-м.н., доцент, гнс</td>
+		<td>ДВФУ, Владивосток</td>
+	</tr>
+	<tr>
+		<td>Вовна В.И.</td>
+		<td>д.ф.-м.н., профессор, внс</td>
+		<td>ДВФУ, Владивосток</td>
+	</tr>
+	<tr>
+		<td>Окотруб А.В.</td>
+		<td>д.ф.-м.н.</td>
+		<td>ИНХ СО РАН, Новосибирск</td>
+	</tr>
+	<tr>
+		<td>Львов И.Б.</td>
+		<td>к.х.н., доцент, снс</td>
+		<td>ДВФУ, Владивосток</td>
+	</tr>
+	<tr>
+		<td>Харченко В.И.</td>
+		<td>к.х.н., внс</td>
+		<td>ДВФУ, Владивосток</td>
+	</tr>
+	<tr>
+		<td>Короченцев В.В.</td>
+		<td>к.х.н., доцент, зав. кафедрой общей физики</td>
+		<td>ДВФУ, Владивосток</td>
+	</tr>
+	<tr>
+		<td>Осьмушко И.С.</td>
+		<td>к.х.н., доцент</td>
+		<td>ДВФУ, Владивосток</td>
+	</tr>
+	<tr>
+		<td colspan="3"><b>Ответственный секретарь</b></td>
+	</tr>
+	<tr>
+		<td>Морев И.А.</td>
+		<td>к.ф.-м.н., доцент, снс</td>
+		<td>ДВФУ, Владивосток</td>
+	</tr>
+	<tr>
+		<td colspan="3"><b>Секретариат</b></td>
+	</tr>
+	<tr>
+		<td>Рябченко О.Б.</td>
+		<td>к.х.н., доцент</td>
+		<td>ДВФУ, Владивосток</td>
+	</tr>
+	<tr>
+		<td>Доценко Е.В.</td>
+		<td>зав. лаб. кафедры общей физики</td>
+		<td>ДВФУ, Владивосток</td>
+	</tr>
+</table>
+</p>
+<% } 
 
-    Ступницкая Н.А., зам.проректора по науке и инновациям, ДВФУ, Владивосток<br />
-    Устинов А.Ю., д.ф.-м.н., профессор, гнс, ДВФУ, Владивосток<br />
-    Чередниченко А.И., д.ф.-м.н., доцент, гнс, ДВФУ, Владивосток<br />
-    Вовна В.И., д.ф.-м.н., профессор, внс, ДВФУ, Владивосток<br />
-    Окотруб А.В., д.ф.-м.н., ИНХ СО РАН, Новосибирск<br />
-    Львов И.Б., к.х.н., доцент, снс, ДВФУ, Владивосток<br />
-    Харченко В.И., к.х.н., внс, ДВФУ, Владивосток<br />
-    Короченцев В.В., к.х.н.,доцент, зав. кафедрой общей физики, ДВФУ, Владивосток<br />
-    Осьмушко И.С., к.х.н.,доцент кафедры общей физики, ДВФУ, Владивосток<br />
-    Рябченко О.Б., к.х.н.,доцент кафедры теоретической и экспериментальной физики, ДВФУ, Владивосток<br />
-    Доценко Е.В., зав. лабораторией кафедры общей физики, ДВФУ, Владивосток<br />
-    Морев И.А., к.ф.-м.н., доцент, снс, ДВФУ, Владивосток<br />
+else { %>
+
+<p><b>Conference Organizers</b><br />
+<table class="table table-bordered table-striped">
+	<tr>
+		<td>Far Eastern Federal University, Vladivostok</td>
+	</tr>
+	<tr>
+		<td>Institute of Chemistry FEB RAS, Vladivostok</td>
+	</tr>
+	<tr>
+		<td>Nikolaev Institute of Inorganic Chemistry SB RAS, Novosibirsk</td>
+	</tr>
+</table>
+
+    <b>Program Committee</b><br /><br />
+    <b>Conference chair</b><br />
+    Academician V.I. Sergienko, IC FEB RAS, Vladivostok<br /><br />
+<table class="table table-bordered table-striped">
+	<tr>
+		<td>Prof. V.I. Vovna</td>
+		<td>FEFU, Vladivostok</td>
+	</tr>
+	<tr>
+		<td>Dr.Sci. A.I. Boronin</td>
+		<td>BIC SB RAS, Novosibirsk</td>
+	</tr>
+	<tr>
+		<td>Prof. A.S. Vinogradov</td>
+		<td>SPSU, Saint-Petersburg</td>
+	</tr>
+	<tr>
+		<td>Prof. E.P. Domashevskayah</td>
+		<td>VSU, Voronez</td>
+	</tr>
+	<tr>
+		<td>Dr.Sci. L.N. Ignateva</td>
+		<td>IC FEB RAS, Vladivostok</td>
+	</tr>
+	<tr>
+		<td>Prof. A.G. Kochur</td>
+		<td>RSTU, Rostov-on-Don</td>
+	</tr>
+	<tr>
+		<td>Dr.Sci. E.Z. Kurmaev</td>
+		<td>IPM UB RAS, Ekaterinburg</td>
+	</tr>
+	<tr>
+		<td>Prof. Mazalov L.N.</td>
+		<td>NIIC SB RAS, Novosibirsk</td>
+	</tr>
+	<tr>
+		<td>Dr.Sci. A.V. Okotrub</td>
+		<td>NIIC SB RAS, Novosibirsk</td>
+	</tr>
+	<tr>
+		<td>Dr.Sci. A.V. Soldatov</td>
+		<td>SFU, Rostov-on-Don</td>
+	</tr>
+	<tr>
+		<td>Dr.Sci. Yu.A. Teterin</td>
+		<td>RSC «Кurchatov Institute», Moscow</td>
+	</tr>
+	<tr>
+		<td>Prof. Yu.V. Chizhov</td>
+		<td>SPSU, Saint-Petersburg</td>
+	</tr>
+	<tr>
+		<td>Dr.Sci. I.N. Shabanova</td>
+		<td>PTI UB RAS, Izhevsk</td>
+	</tr>
+	<tr>
+		<td>Prof. A.M. Shikin</td>
+		<td>SPSU, Saint-Petersburg</td>
+	</tr>
+	<tr>
+		<td>V.G. Yarzhemskii</td>
+		<td>IGIC RAS, Moscow</td>
+	</tr>
+</table>
+    <br />
+	
+    <b>Organizing Committee</b><br /><br />
+    <b>Chair</b><br />
+    Prof. O.L. Shcheka, Deputy Vice-Rector on Science and Innovations, FEFU, Vladivostok<br /><br />
+<table class="table table-bordered table-striped">
+	<tr>
+		<td>N.A. Stupnitskaya, Deputy Vice-Rector</td>
+		<td>FEFU, Vladivostok</td>
+	</tr>
+	<tr>
+		<td>Prof. A.Yu. Ustinov</td>
+		<td>FEFU, Vladivostok</td>
+	</tr>
+	<tr>
+		<td>Dr.Sci. A.I. Cherednichenko</td>
+		<td>FEFU, Vladivostok</td>
+	</tr>
+	<tr>
+		<td>Prof. V.I. Vovna</td>
+		<td>FEFU, Vladivostok</td>
+	</tr>
+	<tr>
+		<td>Dr.Sci. A.V. Okotrub</td>
+		<td>NIIC SB RAS, Novosibirsk</td>
+	</tr>
+	<tr>
+		<td>Dr. I.B. L’vov</td>
+		<td>FEFU, Vladivostok</td>
+	</tr>
+	<tr>
+		<td>Dr. V.I. Kharchenko</td>
+		<td>FEFU, Vladivostok</td>
+	</tr>
+	<tr>
+		<td>Dr. V.V. Korochentsev</td>
+		<td>FEFU, Vladivostok</td>
+	</tr>
+	<tr>
+		<td>Dr. I.S. Os’mushko</td>
+		<td>FEFU, Vladivostok</td>
+	</tr>
+	<tr>
+		<td colspan="2"><b>Secretary in charge</b></td>
+	</tr>
+	<tr>
+		<td>Dr. I.A. Morev</td>
+		<td>FEFU, Vladivostok</td>
+	</tr>
+	<tr>
+		<td colspan="2"><b>Secretariat</b></td>
+	</tr>
+	<tr>
+		<td>Dr. O.B. Ryabchenko</td>
+		<td>FEFU, Vladivostok</td>
+	</tr>
+	<tr>
+		<td>E.V. Dotsenko</td>
+		<td>FEFU, Vladivostok</td>
+	</tr>
+</table>
 </p>
 
+<% } %>
 <% endblock %>

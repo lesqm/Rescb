@@ -1,33 +1,55 @@
 @extends _base.html
 
 <% block content %>
-
+<% if(this.lang === 'ru') { %>
 <b>Важные даты</b>
 <table class="table table-bordered table-striped">
     <tr>
-        <td>15 апреля 2016 года</td>
+        <td>15 марта 2016 года</td>
         <td>Подача заявки на участие и тезисов докладов</td>
     </tr>
     <tr>
         <td>1 июля 2016 года</td>
-        <td>Уведомление о принятии докладов, рассылка Информационного сообщения №2</td>
+        <td>Уведомление о принятии докладов, <br />рассылка информационного сообщения №2,<br /> оплата оргвзноса</td>
     </tr>
     <tr>
-        <td>10 июля 2016 года</td>
+        <td>1 августа 2016 года</td>
         <td>Рассылка предварительной программы конференции</td>
     </tr>
     <tr>
-        <td>15 июля 2016 года</td>
-        <td>Подтверждение участия, оплата взноса</td>
+        <td>15 августа 2016 года</td>
+        <td>Крайний срок оплаты взноса</td>
     </tr>
     <tr>
-        <td>1 сентября 2016 года</td>
-        <td>Рассылка программы конференции</td>
-    </tr>
-    <tr>
-        <td>20сентября 2016 года</td>
+        <td>20 сентября 2016 года</td>
         <td>Открытие конференции</td>
     </tr>
 </table>
+<% } 
 
+else { %>
+<b>Important dates</b>
+<table class="table table-bordered table-striped">
+    <tr>
+        <td>March 15, 2016</td>
+        <td>Call for Abstracts: Application and Abstracts submission</td>
+    </tr>
+    <tr>
+        <td>July 1, 2016</td>
+        <td>Acceptance notification, Second Circular, Registration fee payment</td>
+    </tr>
+    <tr>
+        <td>August 1, 2016</td>
+        <td>Preliminary programme of the conference</td>
+    </tr>
+    <tr>
+        <td>August 15,2016</td>
+        <td>Deadlinefor Registration fee payment</td>
+    </tr>
+    <tr>
+        <td>September 20, 2016</td>
+        <td>Opening of the conference</td>
+    </tr>
+</table>
+<% } %>
 <% endblock %>

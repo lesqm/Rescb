@@ -1,20 +1,71 @@
 @extends _base.html
 
 <% block content %>
-
+<% if(this.lang === 'ru') { %>
 <p>
-    Научная программа конференции включает 7 пленарных лекций (40 минут), 40 устных докладов (20 минут), 6 устных докладов молодых ученых (15 минут), и 70 стендовых докладов.<br /><br />
+    Структуру конференции составят пленарные (40 минут), устные (20 минут) и стендовые доклады по следующим научным разделам:<br /><br />
 
     <b>ОСНОВНЫЕ НАУЧНЫЕ НАПРАВЛЕНИЯ<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Фотоэлектронная спектроскопия и электронная Оже-спектроскопия<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Рентгеновская эмиссионная спектроскопия.EXAFS,NEXAFS (XANES)<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Фотоэлектронная дифракция<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Новые теоретические подходы в описании электронной структуры<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Применение фотоэлектронной спектроскопии для исследования поверхности, катализаторов и полупроводников<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Применение фотоэлектронной спектроскопии для исследования наноструктурныхи функциональных материалов<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Новые разработки лабораторных приборов<br /><br />
-
+<table class="table table-bordered">
+	<tr>
+		<td>Новые тенденции, результаты и теоретические подходы в исследовании и описании электронной структуры</td>
+	</tr>
+	<tr>
+		<td>Новые разработки технологий и лабораторных приборов для исследования строения вещества</td>
+	</tr>
+	<tr>
+		<td>Фотоэлектронная спектроскопия и электронная Оже-спектроскопия</td>
+	</tr>
+	<tr>
+		<td>Фотоэлектронная дифракция</td>
+	</tr>
+	<tr>
+		<td>Рентгеновская эмиссионная спектроскопия. EXAFS, NEXAFS (XANES)</td>
+	</tr>
+	<tr>
+		<td>Применение фотоэлектронной спектроскопии для исследования поверхности, катализаторов и полупроводников</td>
+	</tr>
+	<tr>
+		<td>Применение фотоэлектронной спектроскопии для исследования биомолекул и наноструктурированных функциональных материалов</td>
+	</tr>
+</table>
         ПЛЕНАРНЫЕ ЛЕКЦИИ</b>
-</p>	
+</p>
+<% } 
 
+else { %>
+<p>
+    The conference will include four days of lectures. Depending on the level of current interest, each
+	session will be introduced through presentations by invited speakers and will include a limited 
+	number of oral presentations. Most papers will be selected for presentation in a conference-wide 
+	poster session. The conference scientific program includes plenary lections (30 min), oral (20 min) 
+	and poster presentations on following topics:<br /><br />
+
+    <b>THE MAIN RESEARCH AREAS<br />
+<table class="table table-bordered">
+	<tr>
+		<td>New theoretical methods for electronic structure simulation</td>
+	</tr>
+	<tr>
+		<td>New scientific equipment</td>
+	</tr>
+	<tr>
+		<td>Photoelectron spectroscopy and electronic Auger spectroscopy</td>
+	</tr>
+	<tr>
+		<td>Photoelectron diffraction</td>
+	</tr>
+	<tr>
+		<td>X-ray emission spectroscopy. EXAFS, NEXAFS (XANES)</td>
+	</tr>
+	<tr>
+		<td>Application of XPS for investigation of surface, catalysts, and semiconductors</td>
+	</tr>
+	<tr>
+		<td>Application of XPS for study of nanostructured functional materials</td>
+	</tr>
+</table>
+        <!-- PLENARY LECTURES --></b>
+</p>	
+<% } %>
 <% endblock %>

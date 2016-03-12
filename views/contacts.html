@@ -1,13 +1,31 @@
 @extends _base.html
 
 <% block content %>
-
+<% if(this.lang === 'ru') { %>
+<h3>Контактная информация</h3>
 <p>
-    Детальную информацию Вы сможете получить в Оргкомитете РЭСХС-22<br>
-    E-mail: info@rescb.ru<br>
-    Teл.: +7 (000) 000-00-00 Доценко Е.В., Факс: +7 (423) 200-00-00<br>
-    Дальневосточный федеральный университет<br>
-    ул. Суханова, 8, 690950 Владивосток<br>
+    Детальную информацию вы сможете получить в Оргкомитете РЭСХС-22<br /><br />
+	
+    Секретариат оргкомитета:<br />
+	Рябченко Ольга Борисовна, тeл.: +7 (902) 506-23-19, email: <a href="mailto:ryabchenko.ob@dvfu.ru">ryabchenko.ob@dvfu.ru</a><br />
+    Доценко Елена Владимировна, тeл.: +7 (950) 292-29-22, email: <a href="mailto:dotsenko.ev@dvfu.ru">dotsenko.ev@dvfu.ru</a><br />
+	Морев Игорь Авенирович, тел.: +7 (914) 721-97-70, email: <a href="mailto:morev.ia@dvfu.ru">morev.ia@dvfu.ru</a><br /><br />
+	Дальневосточный федеральный университет, г. Владивосток, ул. Суханова, 8, 690950<br />
+    Email: <a href="mailto:info@rescb.ru">info@rescb.ru</a><br />
 </p>	
+<% } 
 
+else { %>
+<h3>Contact Information</h3>
+<p>
+    For detailed information you can contact the Organizing Committee RESCB-22<br /><br />
+	
+    The secretariat of the organizing committee:<br />
+	Dr. I.A. Morev, tel.: +7 (914) 721-97-70, email: <a href="mailto:morev.ia@dvfu.ru">morev.ia@dvfu.ru</a><br />
+	Dr. O.B. Ryabchenko, tel.: +7 (902) 506-23-19, email: <a href="mailto:ryabchenko.ob@dvfu.ru">ryabchenko.ob@dvfu.ru</a><br />
+    E.V. Dotsenko, tel.: +7 (950) 292-29-22, email: <a href="mailto:dotsenko.ev@dvfu.ru">dotsenko.ev@dvfu.ru</a><br /><br />
+	Far Eastern Federal University, Vladivostok, 8 Suhanova St., 690950<br />
+    Email: <a href="mailto:info@rescb.ru">info@rescb.ru</a><br />
+</p>
+<% } %>
 <% endblock %>

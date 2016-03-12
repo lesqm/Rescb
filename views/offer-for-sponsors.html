@@ -1,7 +1,7 @@
 @extends _base.html
 
 <% block content %>
-
+<% if(this.lang === 'ru') { %>
 <p>
     <b>Реклама, участие компаний</b><br />
     Оргкомитет приглашает компании, заинтересованные в презентации или рекламе своей продукции, принять участие в работе конференции и выступить ее спонсорами. В рамках конференции может быть организована выставка аналитического оборудования. Обращайтесь, пожалуйста, в Оргкомитет для обсуждения формы участия<br />
@@ -60,6 +60,81 @@
     5. Проведение семинара в рамках конференции (длительностью до 2-х часов) в статусе параллельной сессии с привлечением в качестве слушателей заинтересованных участников конференции и специалистов из организаций Академгородка и Новосибирска – 30 000 руб.<br /><br />
 
     <b>Все рекламно-информационные материалы (стенды, постеры, брошюры) предоставляются спонсором!</b><br />
-</p>	
+</p>
+<% } 
 
+else { %>
+<p>
+    <b>CONFERENCE SPONSORSHIP PROPOSAL</b><br /><br />
+    The Organizing Committee cordially invites the Companies to participate in the XXII Russian Conference with International Participation “X-RAY AND ELECTRONIC SPECTRA AND CHEMICAL BONDING” (RESCB-22) to be held in Vladivostok, Russia, on September 20-23, 2016. 
+	The regular conference RESCB is the main Russian conference for the presentation of new research results in the field of X-ray and electronic spectroscopy (XPS, AES, NEXAFS, EXAFS, XES) and related methods for study of new materials. 
+	About 200 specialists representing leading research teams of main Russian scientific centers will take part in the Conference RESCB-22.
+	Along with public recognition, your sponsorship will have an excellent opportunity to present your company, get in touch with a highly targeted audience of consumers, and lobby your interests to a wide range of the participants from different regions of Russia.
+	We offer a variety of sponsorship opportunities suitable for large as well as small organizations. Depending on the level of sponsorship, a sponsor will receive the mentioned below benefits.<br /><br />
+    <a href="#" target="_blank">CALL FOR SPONSORSHIP (.pdf file)</a><br /><br />
+	
+	<b>SPONSORSHIP LEVELS</b><br /><br />
+	
+    <b>General sponsorship  2 000 €</b><br /><br />
+	1. The status of a General Sponsor confirmed by Certificate will be assigned.<br />
+	2. Corporate name and logo of the Company will be displayed at:<br />
+	<ol>
+		<li type="a">The conference Web site. A link to the Company’s Web page will be installed at the conference Web site</li>
+		<li type="a">Final Program (electronic version and brochure), Book of Abstracts and CD-Book of Abstracts</li>
+		<li type="a">Other conference promotional and informational materials (Letters, Press releases, Mass media)</li>
+	</ol>
+	3. The Company will have the opportunity to put up appropriate literature and/or materials in the delegate bag<br />
+	4. The promotional information about the Company will broadcast on the screen during breaks.<br />
+	5. Free registration for 2 delegates<br />
+	6. Welcome 5-minutes greeting of the General Sponsor representative at the conference opening ceremony<br />
+	7. Advertising presentation (20 minutes) at the conference Plenary session<br />
+	8. Publication of the one color page advertisement in the Conference Proceedings<br />
+	9. The Conference Secretariat will provide a place for the Company to display the corporate stands, devices and materials<br />
+	10. Placing a corporate poster of the Company in place of the poster session<br />
+	11. Sending invitation letters to experts recommended by the Company to take part in the conference<br /><br />
+
+    <b>Official sponsorship  1 250 €</b><br /><br />
+    1. The status of a Official Sponsor confirmed by Certificate will be assigned.<br />
+	2. Corporate name and logo of the Company will be displayed at<br />
+	<ol>
+		<li type="a">The conference Web site. A link to the Company’s Web page will be installed at the conference Web site</li>
+		<li type="a">Final Program (electronic version and brochure), Book of Abstracts and CD-Book of Abstracts</li>
+		<li type="a">Other conference promotional and informational materials (Letters, Press releases, Mass media)</li>
+	</ol>
+	3. The Company will have the opportunity to put up appropriate literature and/or materials in the delegate bag<br />
+	4. Free registration for 1 delegate<br />
+	5. Advertising presentation (10 minutes) at the conference Oral session<br />
+	6. Publication of the one color page advertisement in the Conference Proceedings<br />
+	7. The Conference Secretariat will provide a place for the Company to display the corporate stands, devices and materials<br />
+	8. Placing a corporate poster of the Company in place of the poster session<br />
+	9. Sending invitation letters to experts recommended by the Company to take part in the conference<br /><br />
+
+
+    <b>Sponsorship  750 €</b><br /><br />
+    1. The status of a Sponsor confirmed by Certificate will be assigned.<br />
+	2. Corporate name and logo of the Company will be displayed at<br />
+	<ol>
+		<li type="a">The conference Web site. A link to the Company’s Web page will be installed at the conference Web site</li>
+		<li type="a">Final Program (electronic version and brochure), Book of Abstracts and CD-Book of Abstracts</li>
+		<li type="a">Other conference promotional and informational materials (Letters, Press releases, Mass media)</li>
+	</ol>
+	3. The Company will have the opportunity to put up appropriate literature and/or materials in the delegate bag<br />
+	4. Advertising presentation (10 minutes) at the conference Oral session<br />
+	5. Publication of the one color page advertisement in the Conference Proceedings<br />
+	6. The Conference Secretariat will provide a place for the Company to display the corporate stands, devices and materials<br />
+	7. Sending invitation letters to experts recommended by the Company to take part in the conference<br /><br />
+
+    <b>Individual proposals for companies</b><br /><br />
+    1. Distribution of the advertizing materials – 125 €<br />
+	2. Providing a place for the Company to display the corporate stands, devices and materials – 250 €<br />
+	3. Advertising presentation (10 minutes) at the conference Oral session – 250 €<br />
+	4. Research report at the conference Oral session – 175 €<br />
+	5. Organization of a workshop in the framework of the conference for up to 2 hours as the parallel session. The Company can invite appropriate audience from the organizations of Vladivostok – 750 €.<br /><br />
+
+    <b>All promotional materials including stands, posters and brochures are provided by sponsor!<br /><br />
+
+	We are waiting for your proposals (<a href="mailto:info@rescb.ru">info@rescb.ru</a>) and ready to discuss any other forms of sponsorship that suit your company, all your comments and suggestions. We are positive that your company will benefit from the success of the conference, from sponsoring and participation in the meeting.
+	</b>
+</p>	
+<% } %>
 <% endblock %>
