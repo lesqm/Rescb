@@ -1,0 +1,88 @@
+@extends _base.html
+
+<% block content %>
+
+<div class="panel panel-info" >
+    <div class="panel-heading">
+        <div class="panel-title">Регистрация аккаунта</div>
+        <div style="float:right; font-size: 80%; position: relative; top: -25px"><a href="@{that(this.lang, 'signin')}">Вы уже зарегистрированы?</a></div>
+    </div>     
+    <div style="padding-top:30px" class="panel-body" >
+        <form class="form-horizontal ajax-form" action="post">
+            <div class="form-group">
+                <label for="inputEmail" class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-7">
+                    <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Введите ваш рабочий email адрес">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPass" class="col-sm-3 control-label">Пароль</label>
+                <div class="col-sm-7">
+                    <input type="password" name="password" class="form-control" id="inputPass" placeholder="Введите желаемый пароль">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputFam" class="col-sm-3 control-label">Фамилия</label>
+                <div class="col-sm-7">
+                    <input type="text" name="lastname" class="form-control" id="inputFam" placeholder="Иванов">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputName" class="col-sm-3 control-label">Имя</label>
+                <div class="col-sm-7">
+                    <input type="text" name="firstname" class="form-control" id="inputName" placeholder="Иван">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputOtch" class="col-sm-3 control-label">Отчество</label>
+                <div class="col-sm-7">
+                    <input type="text" name="middlename" class="form-control" id="inputOtch" placeholder="Иванович">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputCountry" class="col-sm-3 control-label">Страна</label>
+                <div class="col-sm-7">
+                    <input type="text" name="country" class="form-control" id="inputCountry" placeholder="Введите страну проживания, например: Россия">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputCity" class="col-sm-3 control-label">Город</label>
+                <div class="col-sm-7">
+                    <input type="text" name="city" class="form-control" id="inputCity" placeholder="Введите город проживания, например: Владивосток">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputWorkplace" class="col-sm-3 control-label">Место работы, учебы</label>
+                <div class="col-sm-7">
+                    <input type="text" name="job" class="form-control" id="inputWorkplace" placeholder="Введите название мета, где вы работаете или учитесь">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPost" class="col-sm-3 control-label">Должность</label>
+                <div class="col-sm-7">
+                    <input type="text" name="position" class="form-control" id="inputPost" placeholder="Введите вашу должность, например: Научный сотрудник">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputDegree" class="col-sm-3 control-label">Ученая степень</label>
+                <div class="col-sm-7">
+                    <input type="text" name="degree" class="form-control" id="inputDegree" placeholder="Введите вашу ученую степень, например: к.ф-м.н.">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputTel" class="col-sm-3 control-label">Рабочий телефон</label>
+                <div class="col-sm-7">
+                    <input type="tel" name="contactphone" class="form-control" id="inputTel" placeholder="Введите номер телефона в девятизначном формате ">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputTel" class="col-sm-3 control-label"></label>
+                <div class="col-sm-7">
+                    <button type="submit" class="btn btn-success">Зарегистрироваться</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<% endblock %>

@@ -19,12 +19,13 @@ public class LangController extends Controller {
 
     public Response noSlashOnLang(String lang) {
         ctx.getSession().put("lang", lang);
-        
+
         return seeOther(urls.that(lang, ""));
     }
 
     public Response setLang(String lang) {
         ctx.getSession().put("lang", lang);
+        ctx.put("lang", lang);
 
         return proceed();
     }

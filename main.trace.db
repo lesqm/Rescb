@@ -1,0 +1,4 @@
+2016-03-12 16:30:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ec19bce7a2f34fbe2855a5242a2232fde30d80f5eb9f4451aeeb354c007124a8"
+Data conversion error converting "ec19bce7a2f34fbe2855a5242a2232fde30d80f5eb9f4451aeeb354c007124a8"; SQL statement:
+SELECT * FROM users WHERE email = ? && password = ? [22018-189]
