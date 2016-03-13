@@ -46,13 +46,13 @@ public class LoginController extends Controller {
         u.setJob(json.getString("job"));
         u.setDegree(json.getString("degree"));
         u.setContactphone(json.getString("contactphone"));
-        
-        if(!u.validate()) {
+
+        if (!u.validate()) {
             return ok(new JSONObject().put("status", "error").put("msg", "invalid request").toString()).asJson();
         }
 
         User.put(db, u);
-        
+
         Session session = ctx.getSession();
         session.put("user", u);
 
@@ -73,6 +73,14 @@ public class LoginController extends Controller {
         //User u = ctx.getRequest().getCookie("user");
 
         return proceed();
+    }
+
+    public Response checkAuth() {
+        if (ctx.getSession().containsKey("user")) {
+            return proceed();
+        }
+
+        return forbidden("You don't have permissions");
     }
 
 }

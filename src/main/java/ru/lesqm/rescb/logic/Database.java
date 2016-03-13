@@ -2,9 +2,10 @@ package ru.lesqm.rescb.logic;
 
 import com.bunjlabs.fugaframework.FugaApp;
 import com.bunjlabs.fugaframework.configuration.Configuration;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.h2.jdbcx.JdbcConnectionPool;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
@@ -18,15 +19,14 @@ public class Database {
     public Database(FugaApp app) {
         this.config = app.getConfiguration();
 
-        try {
-            Class.forName("org.h2.Driver");
-        } catch (ClassNotFoundException ex) {
-            log.catching(ex);
-        }
+        HikariConfig hikariConfig = new HikariConfig();
+        hikariConfig.setJdbcUrl(config.get("rescb.db.jdbcurl"));
+        hikariConfig.setUsername(config.get("rescb.db.username"));
+        hikariConfig.setPassword(config.get("rescb.db.password"));
 
-        JdbcConnectionPool connectionPool = JdbcConnectionPool.create(config.get("rescb.db.path", "jdbc:h2:./main"), "sa", "sa");
-        this.sql2o = new Sql2o(connectionPool);
+        HikariDataSource ds = new HikariDataSource(hikariConfig);
 
+        this.sql2o = new Sql2o(ds);
         init();
     }
 
@@ -53,7 +53,8 @@ public class Database {
                 + "title TEXT NOT NULL,"
                 + "form INTEGER NOT NULL,"
                 + "section INTEGER NOT NULL,"
-                + "fileId INTEGER NOT NULL"
+                + "fileId INTEGER NOT NULL,"
+                + "status INTEGER NOT NULL DEFAULT 0"
                 + ")";
         String tezis_files
                 = "CREATE TABLE IF NOT EXISTS tezis_files ("
@@ -67,7 +68,7 @@ public class Database {
             c.createQuery(tezis_files).executeUpdate();
         }
     }
-    
+
     protected Sql2o getSql2o() {
         return sql2o;
     }

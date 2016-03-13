@@ -8,7 +8,7 @@
         <div style="float:right; font-size: 80%; position: relative; top: -25px"><a href="@{that(this.lang, 'signin')}">Вы уже зарегистрированы?</a></div>
     </div>     
     <div style="padding-top:30px" class="panel-body" >
-        <form class="form-horizontal ajax-form" action="post">
+        <form class="form-horizontal ajax-form" data-error="<b>Заполнены не все поля.</b>">
             <div class="form-group">
                 <label for="inputEmail" class="col-sm-3 control-label">Email</label>
                 <div class="col-sm-7">
