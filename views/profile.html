@@ -3,12 +3,12 @@
 <% block content %>
 
 <h3>Личный кабинет</h3>
-<p>Здравствуйте, <b>Иванов Иван Иванович</b>.</p>
+<p>Здравствуйте, <b><# this.user.getLastname() #> <# this.user.getFirstname() #> <# this.user.getMiddlename() #></b>.</p>
 <div>
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#theses" aria-controls="theses" role="tab" data-toggle="tab">Подача тезисов</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Мои заявки</a></li>
         <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Настройка личных данных</a></li>
-        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Еще одна опции на всяки случай</a></li>
     </ul>
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="theses">
@@ -17,48 +17,109 @@
                     <div class="panel-title">Форма подачи тезисов</div>
                 </div>     
                 <div style="padding-top:30px" class="panel-body" >
-                    <form class="form-horizontal">
+                    <form class="form-horizontal ajax-form" action="@{that(this.lang, 'profile', 'tezis')}">
                         <div class="form-group">
                             <label for="sp_user_personal_lastName" class="control-label col-sm-3 required">Форма презентации</label>
                             <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option>Устный доклад</option>
-                                    <option>Стендовый доклад</option>
-                                    <option>Участие без доклада</option>
-                                    <option>Зочное участие</option>
+                                <select class="form-control" name="form">
+                                    <option value="0" >Устный доклад</option>
+                                    <option value="1" >Стендовый доклад</option>
+                                    <option value="2" >Участие без доклада</option>
+                                    <option value="3" >Заочное участие</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="sp_user_personal_lastName" class="control-label col-sm-3 required">Секция</label>
                             <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option>Фотоэлектронная спектроскопия и электронная Оже-спектроскопия</option>
-                                    <option>Рентгеновская эмиссионная спектроскопия.EXAFS,NEXAFS (XANES)</option>
-                                    <option>Фотоэлектронная дифракция</option>
-                                    <option>Новые теоретические подходы в описании электронной структуры</option>
-                                    <option>Применение фотоэлектронной спектроскопии для исследования поверхности, катализаторов и полупроводников</option>
-                                    <option>Применение фотоэлектронной спектроскопии для исследования наноструктурныхи функциональных материалов</option>
-                                    <option>Новые разработки лабораторных приборов</option>
+                                <select class="form-control" name="section">
+                                    <option value="0">Фотоэлектронная спектроскопия и электронная Оже-спектроскопия</option>
+                                    <option value="1">Рентгеновская эмиссионная спектроскопия.EXAFS,NEXAFS (XANES)</option>
+                                    <option value="2">Фотоэлектронная дифракция</option>
+                                    <option value="3">Новые теоретические подходы в описании электронной структуры</option>
+                                    <option value="4">Применение фотоэлектронной спектроскопии для исследования поверхности, катализаторов и полупроводников</option>
+                                    <option value="5">Применение фотоэлектронной спектроскопии для исследования наноструктурныхи функциональных материалов</option>
+                                    <option value="6">Новые разработки лабораторных приборов</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="title-of-the-report" class="control-label col-sm-3 required">Название доклада</label>
-                            <div class="col-sm-9"><input type="text" id="title-of-the-report" name="title-of-the-report" required="required" class="form-control" value="" /></div>
+                            <div class="col-sm-9"><input type="text" id="title-of-the-report" name="title" required="required" class="form-control" value="" /></div>
                         </div>
                         <div class="form-group">
                             <label for="theses-file" class="control-label col-sm-3 required">Файл тезисов</label>
                             <div class="col-sm-9"><input id="theses-file" name="theses-file" required="required" class="form-control" type="file"></div>
+                            <input type="hidden" name="tezisId" value=""/>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-3">
-                                <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#Modal-Thesis">Отправить</button>
+                                <button type="submit" class="btn btn-success">Отправить</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="messages">
+            <% 
+
+            var apps = ctx.get('applications'); 
+            var formStr = function(form) {
+            switch(form) {
+            case 0: return "Устный доклад";
+            case 1: return "Стендовый доклад";
+            case 2: return "Участие без доклада";
+            case 3: return "Заочное участие";
+            default: return "Неизвестно";
+            }
+            };
+            var sectionStr = function(form) {
+            switch(form) {
+            case 0: return "Фотоэлектронная спектроскопия и электронная Оже-спектроскопия";
+            case 1: return "Рентгеновская эмиссионная спектроскопия.EXAFS,NEXAFS (XANES)";
+            case 2: return "Фотоэлектронная дифракция";
+            case 3: return "Новые теоретические подходы в описании электронной структуры";
+            case 4: return "Применение фотоэлектронной спектроскопии для исследования поверхности, катализаторов и полупроводников";
+            case 5: return "Применение фотоэлектронной спектроскопии для исследования наноструктурныхи функциональных материалов";
+            case 6: return "Новые разработки лабораторных приборов";
+            default: return "Неизвестно";
+            }
+            };
+            
+            var statusStr = function(form) {
+            switch(form) {
+            case 0: return "Отправленно на проверку";
+            case 1: return "Принято";
+            case 2: return "Отклонено";
+            default: return "Неизвестно";
+            }
+            };
+
+
+            %>
+
+            <table class="table table-condensed">
+                <tr>
+                    <td>Форма</td>
+                    <td>Секция</td>
+                    <td>Заголовок</td>
+                    <td>Файл</td>
+                    <td>Статус</td>
+                </tr>
+
+                <% for each (var a in apps) { %>
+                <tr>
+                    <td><# formStr(a.getForm()) #></td>
+                    <td><# sectionStr(a.getSection()) #></td>
+                    <td><# a.getTitle() #></td>
+                    <td><a href="@{that('download', a.getFileId())}">Загрузить</a></td>
+                    <td><# statusStr(a.getStatus()) #></td>
+                </tr>
+                <% } %>
+
+            </table>
+
         </div>
         <div role="tabpanel" class="tab-pane" id="settings">
             <div class="panel panel-info" style="margin-top: 20px;">
@@ -66,24 +127,60 @@
                     <div class="panel-title">Личные данные</div>
                 </div>     
                 <div style="padding-top:30px" class="panel-body" >
-                    <form class="form-horizontal">
+                    <form class="form-horizontal ajax-form" action="@{that(this.lang, 'profile', 'settings')}">
                         <div class="form-group">
                             <label for="LastName" class="control-label col-sm-3 required">Фамилия</label>
-                            <div class="col-sm-9"><input type="text" id="LastName" name="LastName" required="required" class="form-control" value="Иванов" /></div>
+                            <div class="col-sm-9"><input type="text" id="LastName" name="lastname" required="required" class="form-control" value="@{this.user.getLastname()}" /></div>
                         </div>
                         <div  class="form-group">
                             <label for="FirstName" class=" control-label col-sm-3 required">Имя</label>
                             <div class="col-sm-9">
-                                <input type="text" id="FirstName" name="FirstName" required="required" class="form-control" value="Иван" />
+                                <input type="text" id="FirstName" name="firstname" required="required" class="form-control" value="@{this.user.getFirstname()}" />
                             </div>
                         </div>
                         <div  class="form-group">
                             <label for="Patronimic" class=" control-label col-sm-3 required">Отчество</label>
                             <div class="col-sm-9">
-                                <input type="text" id="Patronimic" name="Patronimic" required="required" class="form-control" value="" />
+                                <input type="text" id="Patronimic" name="middlename" required="required" class="form-control"  value="@{this.user.getMiddlename()}" />
                             </div>
                         </div>
                         <div  class="form-group">
+                            <label for="Patronimic" class=" control-label col-sm-3 required">Страна</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="Patronimic" name="country" required="required" class="form-control"  value="@{this.user.getCountry()}" />
+                            </div>
+                        </div>
+                        <div  class="form-group">
+                            <label for="Patronimic" class=" control-label col-sm-3 required">Город</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="Patronimic" name="city" required="required" class="form-control"  value="@{this.user.getCity()}" />
+                            </div>
+                        </div>
+                        <div  class="form-group">
+                            <label for="Patronimic" class=" control-label col-sm-3 required">Место работы, учебы</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="Patronimic" name="job" required="required" class="form-control"  value="@{this.user.getJob()}" />
+                            </div>
+                        </div>
+                        <div  class="form-group">
+                            <label for="Patronimic" class=" control-label col-sm-3 required">Должность</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="Patronimic" name="position" required="required" class="form-control"  value="@{this.user.getPosition()}" />
+                            </div>
+                        </div>
+                        <div  class="form-group">
+                            <label for="Patronimic" class=" control-label col-sm-3 required">Ученая степень</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="Patronimic" name="degree" required="required" class="form-control"  value="@{this.user.getDegree()}" />
+                            </div>
+                        </div>
+                        <div  class="form-group">
+                            <label for="Patronimic" class=" control-label col-sm-3 required">Рабочий телефон</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="Patronimic" name="contactphone" required="required" class="form-control"  value="@{this.user.getContactphone()}" />
+                            </div>
+                        </div>
+                        <!-- <div  class="form-group">
                             <label for="BirthDate" class=" control-label col-sm-3 required">День рождения</label>
                             <div class="col-sm-3">
                                 <input type="text" id="BirthDate" name="" required="required" class="form-control" value="20.11.1990" />
@@ -98,17 +195,18 @@
                                     <option value="2">Женский</option>
                                 </select>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-3">
-                                <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#Modal-Save">Сихранить изменения</button>
+                                <button type="submit" class="btn btn-success">Сохранить</button>
+                            </div>
+                            <div class="col-sm-offset-1 col-sm-1">
+                                <span id="success" class="text-success">Успешно!</span>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="messages">None
         </div>
     </div>
 </div>

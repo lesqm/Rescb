@@ -4,7 +4,7 @@ import org.sql2o.Connection;
 
 public class User {
 
-    private long id;
+    private long id = -1;
     private String firstname;
     private String lastname;
     private String middlename;
@@ -42,6 +42,23 @@ public class User {
                 + ":country, :city, :job, :position, :degree, :contactphone)";
         try (Connection c = db.getSql2o().open()) {
             u.setId(c.createQuery(sql).bind(u).executeUpdate().getKey(long.class));
+        }
+    }
+
+    public static void update(Database db, User u) {
+        String sql = "UPDATE users SET "
+                + "firstname = :firstname, lastname = :lastname, middlename = :middlename, email = :email, password = :password,"
+                + "country = :country, city = :city, job = :job, position = :position, degree = :degree, contactphone = :contactphone";
+        try (Connection c = db.getSql2o().open()) {
+            c.createQuery(sql).bind(u).executeUpdate();
+        }
+    }
+
+    public void save(Database db) {
+        if (id < 0) {
+            put(db, this);
+        } else {
+            update(db, this);
         }
     }
 

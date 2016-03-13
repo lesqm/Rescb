@@ -4,9 +4,9 @@ GET  $/assets/(.*)  asset(1)
 
 // GET  RestrictController.restrict()
   
-GET  $/                            LangController.noLangOnUrl()
-GET  $/(ru|en)                     LangController.noSlashOnLang(1)
-GET  $/(ru|en)/(.*)                LangController.setLang(1)
+$/                            LangController.noLangOnUrl()
+$/(ru|en)                     LangController.noSlashOnLang(1)
+$/(ru|en)/(.*)                LangController.setLang(1)
 
 LoginController.checkCookie()
 
@@ -26,4 +26,13 @@ POST $/(ru|en)/signin              LoginController.signinProcess()
 GET  $/(ru|en)/signup              view("signup.html")
 POST $/(ru|en)/signup              LoginController.signupProcess()
 
-GET  $/(ru|en)/signout             LoginController.signout() 
+GET  $/(ru|en)/signout             LoginController.signout()
+
+LoginController.checkAuth()
+
+GET  $/(ru|en)/profile             ProfileController.profile()
+POST $/(ru|en)/profile/settings    ProfileController.settingsProcess()
+POST $/(ru|en)/profile/tezis       ProfileController.tezisProcess()
+
+GET  $/download/(\d+)              UploadController.download(1:long)
+POST $/ajax/upload                 UploadController.uploadProcess()
