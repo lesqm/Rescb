@@ -16,18 +16,16 @@ public class MailgunService extends Service {
     @Inject
     public Configuration conf;
 
-    public void sendNoReply(String email, String subject, String body) throws UnirestException {
-        HttpResponse<String> result = Unirest.post(conf.get("rescb.mailgun.apiurl"))
+    public void sendNoReply(String email, String subject, String body) {
+        Unirest.post(conf.get("rescb.mailgun.apiurl"))
                 .field("from", "Конференция РЭСХС-22 <noreply@rescb.ru>")
                 .field("to", email)
                 .field("subject", subject)
                 .field("text", body)
                 .basicAuth("api", conf.get("rescb.mailgun.privatekey"))
-                .asString();
+                .asStringAsync();
         
-        String s = result.getBody();
-        
-        log.debug("Mail sent: {}", s);
+        log.debug("Mail sent");
         
     }
 
