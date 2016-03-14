@@ -10,7 +10,7 @@ import java.nio.charset.Charset;
 import java.util.List;
 import org.json.JSONObject;
 import ru.lesqm.rescb.logic.Application;
-import ru.lesqm.rescb.logic.Database;
+import ru.lesqm.rescb.services.Database;
 import ru.lesqm.rescb.logic.TezisFile;
 import ru.lesqm.rescb.logic.User;
 

@@ -6,7 +6,7 @@ import com.bunjlabs.fugaframework.foundation.Response;
 import com.bunjlabs.fugaframework.sessions.Session;
 import java.nio.charset.Charset;
 import org.json.JSONObject;
-import ru.lesqm.rescb.logic.Database;
+import ru.lesqm.rescb.services.Database;
 import ru.lesqm.rescb.logic.User;
 import ru.lesqm.rescb.utils.HashUtils;
 
@@ -49,6 +49,10 @@ public class LoginController extends Controller {
 
         if (!u.validate()) {
             return ok(new JSONObject().put("status", "error").put("msg", "invalid request").toString()).asJson();
+        }
+        
+        if(User.getByEmail(db, u.getEmail()) != null) {
+            return ok(new JSONObject().put("status", "error").put("msg", "email already exists").toString()).asJson();
         }
 
         User.put(db, u);

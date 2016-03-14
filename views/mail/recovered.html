@@ -1,0 +1,9 @@
+<% this.lang = ctx.getSession().get('lang'); %>
+Здравствуйте!
+
+Вы запросили восстановление пароля на сайте rescb.ru.
+Ваш новый пароль
+
+@{ctx.get('password')}
+
+Ваш e-mail: @{ctx.get('user').getEmail()}

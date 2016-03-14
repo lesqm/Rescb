@@ -18,7 +18,7 @@ import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
-import ru.lesqm.rescb.logic.Database;
+import ru.lesqm.rescb.services.Database;
 import ru.lesqm.rescb.logic.TezisFile;
 import ru.lesqm.rescb.logic.User;
 

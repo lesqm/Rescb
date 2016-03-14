@@ -1,5 +1,6 @@
 package ru.lesqm.rescb.logic;
 
+import ru.lesqm.rescb.services.Database;
 import org.sql2o.Connection;
 
 public class User {
@@ -32,6 +33,15 @@ public class User {
             return c.createQuery(sql)
                     .addParameter("email", email)
                     .addParameter("password", password)
+                    .executeAndFetchFirst(User.class);
+        }
+    }
+    
+    public static User getByEmail(Database db, String email) {
+        String sql = "SELECT * FROM users WHERE email = :email";
+        try (Connection c = db.getSql2o().open()) {
+            return c.createQuery(sql)
+                    .addParameter("email", email)
                     .executeAndFetchFirst(User.class);
         }
     }

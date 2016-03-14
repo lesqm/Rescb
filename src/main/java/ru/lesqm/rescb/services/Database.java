@@ -1,7 +1,8 @@
-package ru.lesqm.rescb.logic;
+package ru.lesqm.rescb.services;
 
-import com.bunjlabs.fugaframework.FugaApp;
 import com.bunjlabs.fugaframework.configuration.Configuration;
+import com.bunjlabs.fugaframework.dependency.Inject;
+import com.bunjlabs.fugaframework.services.Service;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.logging.log4j.LogManager;
@@ -9,16 +10,17 @@ import org.apache.logging.log4j.Logger;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
-public class Database {
+public class Database extends Service {
 
     private static final Logger log = LogManager.getLogger(Database.class);
 
-    private final Configuration config;
-    private final Sql2o sql2o;
+    private Sql2o sql2o;
 
-    public Database(FugaApp app) {
-        this.config = app.getConfiguration();
+    @Inject
+    public Configuration config;
 
+    @Override
+    public void onCreate() {
         HikariConfig hikariConfig = new HikariConfig();
         hikariConfig.setJdbcUrl(config.get("rescb.db.jdbcurl"));
         hikariConfig.setUsername(config.get("rescb.db.username"));
@@ -28,7 +30,7 @@ public class Database {
 
         this.sql2o = new Sql2o(ds);
         init();
-    }
+    }    
 
     private void init() {
         String users
@@ -62,14 +64,23 @@ public class Database {
                 + "hash VARCHAR(255) NOT NULL"
                 + ")";
 
+        String password_recoveries
+                = "CREATE TABLE IF NOT EXISTS password_recoveries ("
+                + "id INTEGER PRIMARY KEY AUTO_INCREMENT,"
+                + "userId INTEGER NOT NULL,"
+                + "token VARCHAR(255) NOT NULL"
+                + ")";
+
         try (Connection c = sql2o.open()) {
             c.createQuery(users).executeUpdate();
             c.createQuery(applications).executeUpdate();
             c.createQuery(tezis_files).executeUpdate();
+
+            c.createQuery(password_recoveries).executeUpdate();
         }
     }
 
-    protected Sql2o getSql2o() {
+    public Sql2o getSql2o() {
         return sql2o;
     }
 }
