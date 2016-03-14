@@ -47,3 +47,6 @@ POST $/(ru|en)/profile/tezis       ProfileController.tezisProcess()
 
 GET  $/download/(\d+)              UploadController.download(1:long)
 POST $/ajax/upload                 UploadController.uploadProcess()
+
+// Admin pages
+GET  $/admin/listall               AdminController.listAllTezises()
