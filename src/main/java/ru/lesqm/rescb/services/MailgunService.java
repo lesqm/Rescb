@@ -12,7 +12,7 @@ public class MailgunService extends Service {
 
     public void sendNoReply(String email, String subject, String body) {
         Unirest.post(conf.get("rescb.mailgun.apiurl"))
-                .field("from", "РЕСХС <noreply@rescb.ru>")
+                .field("from", conf.get("rescb.mailgun.from"))
                 .field("to", email)
                 .field("subject", subject)
                 .field("text", body)
