@@ -108,7 +108,7 @@ $(document).ready(function () {
                 processbox.fadeOut(200);
 
                 bootbox.alert(errorMessage);
-                $("form.ajax-form button[type='submit']").prop('disabled', false);
+                button.prop('disabled', false);
             };
 
             var successFunc = function (data) {
