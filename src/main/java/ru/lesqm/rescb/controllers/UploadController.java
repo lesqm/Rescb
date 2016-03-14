@@ -89,7 +89,7 @@ public class UploadController extends Controller {
 
             FileOutputStream fos = new FileOutputStream(file, true);
 
-            fos.write(ctx.getRequest().getContent().array());
+            fos.write(ctx.getRequest().getContent().array(), 0, end - start);
 
             if (end >= fileSize - 1) {
 

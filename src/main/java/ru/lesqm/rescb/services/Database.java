@@ -46,7 +46,9 @@ public class Database extends Service {
                 + "job VARCHAR(255) NOT NULL,"
                 + "position VARCHAR(255) NOT NULL,"
                 + "degree VARCHAR(255) NOT NULL,"
-                + "contactphone VARCHAR(255) NOT NULL"
+                + "contactphone VARCHAR(255) NOT NULL,"
+                + "gender INTEGER NOT NULL DEFAULT 0,"
+                + "birthday DATE DEFAULT NULL"
                 + ")";
         String applications
                 = "CREATE TABLE IF NOT EXISTS applications ("

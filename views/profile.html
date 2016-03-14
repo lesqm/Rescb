@@ -86,7 +86,7 @@
             default: return "Неизвестно";
             }
             };
-            
+
             var statusStr = function(form) {
             switch(form) {
             case 0: return "Отправленно на проверку";
@@ -180,28 +180,58 @@
                                 <input type="text" id="Patronimic" name="contactphone" required="required" class="form-control"  value="@{this.user.getContactphone()}" />
                             </div>
                         </div>
-                        <!-- <div  class="form-group">
+                        <div  class="form-group">
                             <label for="BirthDate" class=" control-label col-sm-3 required">День рождения</label>
-                            <div class="col-sm-3">
-                                <input type="text" id="BirthDate" name="" required="required" class="form-control" value="20.11.1990" />
+                            <div class="col-sm-9">
+                                <input type="text" id="BirthDate" name="birthday" class="form-control" value="@{this.user.getBirthday() !== null ? this.user.getBirthday() : ''}" placeholder="Например: 1990-03-24" />
                             </div>
                         </div>
                         <div  class="form-group">
                             <label for="gender" class=" control-label col-sm-3 required">Пол</label>
                             <div class="col-sm-3">
+                                <% var gender = this.user.getGender(); %>
                                 <select id="gender" name="gender" class="form-control">
-                                    <option value="0"></option>
-                                    <option value="1" selected="selected">Мужской</option>
-                                    <option value="2">Женский</option>
+                                    <option value="0" @{gender === 0 ? 'selected' : ''}></option>
+                                    <option value="1" @{gender === 1 ? 'selected' : ''}>Мужской</option>
+                                    <option value="2" @{gender === 2 ? 'selected' : ''}>Женский</option>
                                 </select>
                             </div>
-                        </div>-->
+                        </div>
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-3">
                                 <button type="submit" class="btn btn-success">Сохранить</button>
                             </div>
-                            <div class="col-sm-offset-1 col-sm-1">
-                                <span id="success" class="text-success">Успешно!</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-info" style="margin-top: 20px;">
+                <div class="panel-heading">
+                    <div class="panel-title">Смена пароля</div>
+                </div>     
+                <div style="padding-top:30px" class="panel-body" >
+                    <form class="form-horizontal ajax-form" action="@{that(this.lang, 'profile', 'password')}" data-error="<b>Пароли не совпадают</b>">
+                        <div class="form-group">
+                            <label for="currentPassword" class="control-label col-sm-3 required">Текущий пароль</label>
+                            <div class="col-sm-9">
+                                <input type="password" id="currentPassword" name="currentpassword" required="required" class="form-control" />
+                            </div>
+                        </div>
+                        <div  class="form-group">
+                            <label for="password" class=" control-label col-sm-3 required">Новый пароль</label>
+                            <div class="col-sm-9">
+                                <input type="password" id="password" name="password" required="required" class="form-control" />
+                            </div>
+                        </div>
+                        <div  class="form-group">
+                            <label for="repassword" class=" control-label col-sm-3 required">Повторите новый пароль</label>
+                            <div class="col-sm-9">
+                                <input type="password" id="repassword" name="repassword" required="required" class="form-control"  />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-3">
+                                <button type="submit" class="btn btn-success">Сохранить</button>
                             </div>
                         </div>
                     </form>

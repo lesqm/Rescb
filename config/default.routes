@@ -42,6 +42,7 @@ LoginController.checkAuth()
 
 GET  $/(ru|en)/profile             ProfileController.profile()
 POST $/(ru|en)/profile/settings    ProfileController.settingsProcess()
+POST $/(ru|en)/profile/password    ProfileController.passwordProcess()
 POST $/(ru|en)/profile/tezis       ProfileController.tezisProcess()
 
 GET  $/download/(\d+)              UploadController.download(1:long)
