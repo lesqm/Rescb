@@ -4,16 +4,26 @@ import com.bunjlabs.fugaframework.dependency.Inject;
 import com.bunjlabs.fugaframework.foundation.Controller;
 import com.bunjlabs.fugaframework.foundation.Response;
 import com.bunjlabs.fugaframework.sessions.Session;
+import com.bunjlabs.fugaframework.templates.TemplateNotFoundException;
+import com.bunjlabs.fugaframework.templates.TemplateRenderException;
 import java.nio.charset.Charset;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
-import ru.lesqm.rescb.logic.Database;
+import ru.lesqm.rescb.services.Database;
 import ru.lesqm.rescb.logic.User;
+import ru.lesqm.rescb.services.MailgunService;
 import ru.lesqm.rescb.utils.HashUtils;
 
 public class LoginController extends Controller {
 
+    private static final Logger log = LogManager.getLogger(LoginController.class);
+
     @Inject
     public Database db;
+
+    @Inject
+    public MailgunService ms;
 
     public Response signinProcess() {
         JSONObject json = new JSONObject(ctx.getRequest().getContent().toString(Charset.forName("UTF-8")));
@@ -33,6 +43,10 @@ public class LoginController extends Controller {
     public Response signupProcess() {
         JSONObject json = new JSONObject(ctx.getRequest().getContent().toString(Charset.forName("UTF-8")));
 
+        /*if (!json.getString("password").equals(json.getString("repassword"))) {
+            return ok(new JSONObject().put("status", "error").put("msg", "passwords does not match").toString()).asJson();
+        }*/
+        
         User u = new User();
 
         u.setFirstname(json.getString("firstname"));
@@ -51,10 +65,23 @@ public class LoginController extends Controller {
             return ok(new JSONObject().put("status", "error").put("msg", "invalid request").toString()).asJson();
         }
 
+        if (User.getByEmail(db, u.getEmail()) != null) {
+            return ok(new JSONObject().put("status", "error").put("msg", "email already exists").toString()).asJson();
+        }
+
         User.put(db, u);
 
         Session session = ctx.getSession();
         session.put("user", u);
+
+        ctx.put("password", json.getString("password"));
+        ctx.put("user", u);
+
+        try {
+            ms.sendNoReply(u.getEmail(), "Новая учетная запись", view("mail/registered.html"));
+        } catch (TemplateNotFoundException | TemplateRenderException ex) {
+            log.catching(ex);
+        }
 
         return ok(new JSONObject().put("status", "ok").put("url", urls.that(ctx.get("lang"), "")).toString()).asJson();
     }

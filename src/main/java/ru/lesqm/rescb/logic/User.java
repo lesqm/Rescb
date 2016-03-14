@@ -1,5 +1,7 @@
 package ru.lesqm.rescb.logic;
 
+import java.sql.Date;
+import ru.lesqm.rescb.services.Database;
 import org.sql2o.Connection;
 
 public class User {
@@ -16,6 +18,9 @@ public class User {
     private String position;
     private String degree;
     private String contactphone;
+    
+    private int gender = 0;
+    private Date birthday = null;
 
     public static User getById(Database db, long id) {
         String sql = "SELECT * FROM users WHERE id = :id";
@@ -35,11 +40,20 @@ public class User {
                     .executeAndFetchFirst(User.class);
         }
     }
+    
+    public static User getByEmail(Database db, String email) {
+        String sql = "SELECT * FROM users WHERE email = :email";
+        try (Connection c = db.getSql2o().open()) {
+            return c.createQuery(sql)
+                    .addParameter("email", email)
+                    .executeAndFetchFirst(User.class);
+        }
+    }
 
     public static void put(Database db, User u) {
         String sql = "INSERT INTO users VALUES"
                 + "(NULL, :firstname, :lastname, :middlename, :email, :password,"
-                + ":country, :city, :job, :position, :degree, :contactphone)";
+                + ":country, :city, :job, :position, :degree, :contactphone, :gender, :birthday)";
         try (Connection c = db.getSql2o().open()) {
             u.setId(c.createQuery(sql).bind(u).executeUpdate().getKey(long.class));
         }
@@ -48,7 +62,8 @@ public class User {
     public static void update(Database db, User u) {
         String sql = "UPDATE users SET "
                 + "firstname = :firstname, lastname = :lastname, middlename = :middlename, email = :email, password = :password,"
-                + "country = :country, city = :city, job = :job, position = :position, degree = :degree, contactphone = :contactphone";
+                + "country = :country, city = :city, job = :job, position = :position, degree = :degree, contactphone = :contactphone,"
+                + "gender = :gender, birthday = :birthday";
         try (Connection c = db.getSql2o().open()) {
             c.createQuery(sql).bind(u).executeUpdate();
         }
@@ -170,5 +185,21 @@ public class User {
 
     public void setJob(String job) {
         this.job = job;
+    }
+
+    public int getGender() {
+        return gender;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 }

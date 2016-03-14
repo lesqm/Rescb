@@ -4,7 +4,7 @@ var ajaxSendBuffer = function (url, buffer, fileName, fileSize, start, end, uplo
     xhr.setRequestHeader('X-Upload-Size', fileSize + "");
     xhr.setRequestHeader('X-Upload-Start', start + "");
     xhr.setRequestHeader('X-Upload-End', end + "");
-    xhr.setRequestHeader('X-Upload-Name', fileName);
+    xhr.setRequestHeader('X-Upload-Name', encodeURIComponent(fileName));
     if (uploadId !== "")
         xhr.setRequestHeader('X-Upload-Id', uploadId);
     //xhr.setRequestHeader('Content-Type', 'application/octet-stream');

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>List  all</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body { font-size: 14px; border-collapse: collapse; }
+            table { border: 1px gray solid; border-spacing: 0; }
+            tr { padding: 0; margin: 0;}
+            td { padding: 5px; }
+            tr:hover {background-color: #efeded; }
+            
+        </style>
+    </head>
+    <body>
+        <div>
+            <table>
+                <tr>
+                    <td>#</td>
+                    <td>ФИО</td>
+                    <td>Заголовок</td>
+                    <td>Форма</td>
+                    <td>Секция</td>
+                    <td>Статус</td>
+                    <td>Файл</td>                    
+                </tr>
+
+                <% 
+
+                var apps = ctx.get('applications'); 
+                var formStr = function(form) {
+                switch(form) {
+                case 0: return "Устный доклад";
+                case 1: return "Стендовый доклад";
+                case 2: return "Участие без доклада";
+                case 3: return "Заочное участие";
+                default: return "Неизвестно";
+                }
+                };
+                var sectionStr = function(form) {
+                switch(form) {
+                case 0: return "Фотоэлектронная спектроскопия и электронная Оже-спектроскопия";
+                case 1: return "Рентгеновская эмиссионная спектроскопия.EXAFS,NEXAFS (XANES)";
+                case 2: return "Фотоэлектронная дифракция";
+                case 3: return "Новые теоретические подходы в описании электронной структуры";
+                case 4: return "Применение фотоэлектронной спектроскопии для исследования поверхности, катализаторов и полупроводников";
+                case 5: return "Применение фотоэлектронной спектроскопии для исследования наноструктурныхи функциональных материалов";
+                case 6: return "Новые разработки лабораторных приборов";
+                default: return "Неизвестно";
+                }
+                };
+
+                var statusStr = function(form) {
+                switch(form) {
+                case 0: return "Отправленно на проверку";
+                case 1: return "Принято";
+                case 2: return "Отклонено";
+                default: return "Неизвестно";
+                }
+                };
+
+
+                %>
+
+                <% var thlist = ctx.get('thlist'); %>
+                <% for (var i = 0; i < thlist.size(); i++) { %>
+                <% var th = thlist.get(i); %>
+                <tr>
+                    <td><# (i+1) + "" #></td>
+                    <td><# th.getUser().getLastname() #> <# th.getUser().getFirstname() #> <# th.getUser().getMiddlename() #></td>
+                    <td><# th.getTitle() #></td>
+                    <td><# formStr(th.getForm()) #></td>
+                    <td><# sectionStr(th.getSection()) #></td>
+                    <td><# statusStr(th.getStatus()) #></td>
+                    <td><a href="@{that('download', th.getFileId())}"><# that('download', th.getFileId()) #></a></td>                    
+                </tr>
+                <% } %>
+            </table>
+        </div>
+    </body>
+</html>

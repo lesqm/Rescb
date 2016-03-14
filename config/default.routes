@@ -2,14 +2,17 @@ use ru.lesqm.rescb.controllers
 
 GET  $/assets/(.*)  asset(1)
 
+// Resctict access
 // GET  RestrictController.restrict()
   
+// Language process
 $/                            LangController.noLangOnUrl()
 $/(ru|en)                     LangController.noSlashOnLang(1)
 $/(ru|en)/(.*)                LangController.setLang(1)
 
-LoginController.checkCookie()
+// LoginController.checkCookie()
 
+// Static pages
 GET  $/(ru|en)/(main)?             view("main.html")
 GET  $/(ru|en)/submissions         view("submissions.html")
 GET  $/(ru|en)/scientific-program  view("scientific-program.html")
@@ -21,6 +24,7 @@ GET  $/(ru|en)/location            view("location.html")
 GET  $/(ru|en)/important-dates     view("important-dates.html")
 GET  $/(ru|en)/contacts            view("contacts.html")
 
+// Sign in/up/out
 GET  $/(ru|en)/signin              view("signin.html")
 POST $/(ru|en)/signin              LoginController.signinProcess()
 
@@ -29,11 +33,20 @@ POST $/(ru|en)/signup              LoginController.signupProcess()
 
 GET  $/(ru|en)/signout             LoginController.signout()
 
+// Password recovery
+GET  $/(ru|en)/forget-password     RecoveryController.forgetPassword()
+GET  $/(ru|en)/recovery/(.*)       RecoveryController.recover(2)
+
+// Profile (lk)
 LoginController.checkAuth()
 
 GET  $/(ru|en)/profile             ProfileController.profile()
 POST $/(ru|en)/profile/settings    ProfileController.settingsProcess()
+POST $/(ru|en)/profile/password    ProfileController.passwordProcess()
 POST $/(ru|en)/profile/tezis       ProfileController.tezisProcess()
 
 GET  $/download/(\d+)              UploadController.download(1:long)
 POST $/ajax/upload                 UploadController.uploadProcess()
+
+// Admin pages
+GET  $/admin/listall               AdminController.listAllTezises()

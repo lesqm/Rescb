@@ -1,0 +1,12 @@
+<% this.lang = ctx.getSession().get('lang'); this.user = ctx.get('user'); %>
+Здравствуйте!
+
+На ваш электронный ящик была зарегистрирована новая учетная запись rescb.ru.
+
+Ваши данные для входа:
+Email:  @{this.user.getEmail()}
+Пароль: @{ctx.get('password')}
+
+С уважением,
+Оргкомитет конференции
+info@rescb.ru

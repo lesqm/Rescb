@@ -1,5 +1,6 @@
 package ru.lesqm.rescb.logic;
 
+import ru.lesqm.rescb.services.Database;
 import org.sql2o.Connection;
 
 public class TezisFile {
