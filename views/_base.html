@@ -85,7 +85,7 @@
                             <a href="@{that(this.lang, 'important-dates')}"><% if(this.lang === 'ru') { %>Важные даты<% } else { %>Important dates<% } %></a>
                             <a href="@{that(this.lang, 'contacts')}"><% if(this.lang === 'ru') { %>Контактная информация<% } else { %>Contacts<% } %></a>
                             <% if(this.user === null) { %>
-                            <a href="@{that(this.lang, 'signin')}"><% if(this.lang === 'ru') { %>Регистрация/Вход<% } else { %>Sign in/Registration<% } %></a>
+                            <!-- <a href="@{that(this.lang, 'signin')}"><% if(this.lang === 'ru') { %>Регистрация/Вход<% } else { %>Sign in/Registration<% } %></a> -->
                             <% } else { %>
                             <div class="profile-sidebar">
                                 <div class="panel panel-info" style="margin: 20px 40px 0 0;">
@@ -115,7 +115,10 @@
         <div class="container-fluid rescb-footer-color">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9 col-md-offset-3 rescb-footer"><% if(this.lang === 'ru') { %>РЭСХС-22 © 2016 Дальневосточный Федеральный Университет, Владивосток<% } else { %>RESCB-22 © 2016 Far Eastern Federal University, Vladivostok<% } %></div>
+                    <div class="col-md-9 col-md-offset-3 rescb-footer">
+						<% if(this.lang === 'ru') { %>РЭСХС-22 © 2016 Дальневосточный Федеральный Университет, Владивосток / <a href="#">Авторы сайта</a><% } 
+						else { %>RESCB-22 © 2016 Far Eastern Federal University, Vladivostok / <a href="#">Website authors</a><% } %>
+					</div>
                 </div>
             </div>
         </div>
@@ -176,3 +179,4 @@
 </div>
 </body>
 </html>
+<!-- Powered by Fuga Framework -->
