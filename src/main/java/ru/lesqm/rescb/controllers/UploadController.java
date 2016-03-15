@@ -100,7 +100,7 @@ public class UploadController extends Controller {
 
                 TezisFile tezisFile = new TezisFile();
                 tezisFile.setHash(uploadId);
-                tezisFile.save(db);
+                TezisFile.put(db, tezisFile);
 
                 return ok(new JSONObject().put("continue", false).put("uploadId", uploadId).toString()).asJson();
             } else {

@@ -60,7 +60,7 @@ public class RecoveryController extends Controller {
         String password = generatePassword();
         u.setPassword(HashUtils.sha256String(password));
         
-        u.save(db);
+        User.update(db, u);
         
         ctx.put("user", u);
         ctx.put("password", password);

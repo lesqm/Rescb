@@ -63,7 +63,7 @@ public class User {
         String sql = "UPDATE users SET "
                 + "firstname = :firstname, lastname = :lastname, middlename = :middlename, email = :email, password = :password,"
                 + "country = :country, city = :city, job = :job, position = :position, degree = :degree, contactphone = :contactphone,"
-                + "gender = :gender, birthday = :birthday";
+                + "gender = :gender, birthday = :birthday WHERE id = :id";
         try (Connection c = db.getSql2o().open()) {
             c.createQuery(sql).bind(u).executeUpdate();
         }

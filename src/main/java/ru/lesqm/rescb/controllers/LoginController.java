@@ -70,7 +70,7 @@ public class LoginController extends Controller {
         }
 
         User.put(db, u);
-
+        
         Session session = ctx.getSession();
         session.put("user", u);
 

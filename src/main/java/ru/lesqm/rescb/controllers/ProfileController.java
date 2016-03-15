@@ -66,7 +66,7 @@ public class ProfileController extends Controller {
             return ok(new JSONObject().put("status", "error").put("msg", "invalid request").toString()).asJson();
         }
 
-        u.save(db);
+        User.update(db, u);
 
         Session session = ctx.getSession();
         session.put("user", u);
@@ -97,7 +97,7 @@ public class ProfileController extends Controller {
             return ok(new JSONObject().put("status", "error").put("msg", "invalid request").toString()).asJson();
         }
 
-        u.save(db);
+        User.update(db, u);
 
         Session session = ctx.getSession();
         session.put("user", u);
