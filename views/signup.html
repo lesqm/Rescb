@@ -1,7 +1,7 @@
 @extends _base.html
 
 <% block content %>
-
+<% if(this.lang === 'ru') { %>
 <div class="panel panel-info" >
     <div class="panel-heading">
         <div class="panel-title">Регистрация аккаунта</div>
@@ -84,5 +84,90 @@
         </form>
     </div>
 </div>
+<% } 
 
+else { %>
+<div class="panel panel-info" >
+    <div class="panel-heading">
+        <div class="panel-title">Account registration</div>
+        <div style="float:right; font-size: 80%; position: relative; top: -25px"><a href="@{that(this.lang, 'signin')}">You already have an account?</a></div>
+    </div>     
+    <div style="padding-top:30px" class="panel-body" >
+        <form class="form-horizontal ajax-form" data-error="<b>Fields are missing.</b>">
+            <div class="form-group">
+                <label for="inputEmail" class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-7">
+                    <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Enter your email address">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPass" class="col-sm-3 control-label">Password</label>
+                <div class="col-sm-7">
+                    <input type="password" name="password" class="form-control" id="inputPass" placeholder="Enter the password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputFam" class="col-sm-3 control-label">Last Name</label>
+                <div class="col-sm-7">
+                    <input type="text" name="lastname" class="form-control" id="inputFam" placeholder="Ivanov">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputName" class="col-sm-3 control-label">Name</label>
+                <div class="col-sm-7">
+                    <input type="text" name="firstname" class="form-control" id="inputName" placeholder="Ivan">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputOtch" class="col-sm-3 control-label">Patronymic</label>
+                <div class="col-sm-7">
+                    <input type="text" name="middlename" class="form-control" id="inputOtch" placeholder="Ivanovich">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputCountry" class="col-sm-3 control-label">Country</label>
+                <div class="col-sm-7">
+                    <input type="text" name="country" class="form-control" id="inputCountry" placeholder="Enter your country, for example: Russia">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputCity" class="col-sm-3 control-label">City</label>
+                <div class="col-sm-7">
+                    <input type="text" name="city" class="form-control" id="inputCity" placeholder="Enter your city, for example: Vladivostok">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputWorkplace" class="col-sm-3 control-label">Place of work or study</label>
+                <div class="col-sm-7">
+                    <input type="text" name="job" class="form-control" id="inputWorkplace" placeholder="Enter the name of the place where you work or study">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPost" class="col-sm-3 control-label">Post</label>
+                <div class="col-sm-7">
+                    <input type="text" name="position" class="form-control" id="inputPost" placeholder="Enter your post, for example: Researcher">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputDegree" class="col-sm-3 control-label">Academic degree</label>
+                <div class="col-sm-7">
+                    <input type="text" name="degree" class="form-control" id="inputDegree" placeholder="Enter your advanced degree">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputTel" class="col-sm-3 control-label">Work phone</label>
+                <div class="col-sm-7">
+                    <input type="tel" name="contactphone" class="form-control" id="inputTel" placeholder="Enter the phone number in the ten-digit format ">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputTel" class="col-sm-3 control-label"></label>
+                <div class="col-sm-7">
+                    <button type="submit" class="btn btn-success">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<% } %>
 <% endblock %>
