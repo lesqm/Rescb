@@ -9,7 +9,7 @@ dependency-reduced-pom.xml
 buildNumber.properties
 
 fuga-rescb.pid
-main.mv.db
-main.trace.db
+*.mv.db
+*.trace.db
 upload/
 tmp/
