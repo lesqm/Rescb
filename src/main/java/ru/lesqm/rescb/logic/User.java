@@ -1,6 +1,7 @@
 package ru.lesqm.rescb.logic;
 
 import java.sql.Date;
+import java.util.List;
 import ru.lesqm.rescb.services.Database;
 import org.sql2o.Connection;
 
@@ -18,7 +19,7 @@ public class User {
     private String position;
     private String degree;
     private String contactphone;
-    
+
     private int gender = 0;
     private Date birthday = null;
 
@@ -31,6 +32,14 @@ public class User {
         }
     }
 
+    public static List<User> getAll(Database db) {
+        String sql = "SELECT * FROM users";
+        try (Connection c = db.getSql2o().open()) {
+            return c.createQuery(sql)
+                    .executeAndFetch(User.class);
+        }
+    }
+
     public static User getByEmailPassword(Database db, String email, String password) {
         String sql = "SELECT * FROM users WHERE email = :email AND password = :password";
         try (Connection c = db.getSql2o().open()) {
@@ -40,7 +49,7 @@ public class User {
                     .executeAndFetchFirst(User.class);
         }
     }
-    
+
     public static User getByEmail(Database db, String email) {
         String sql = "SELECT * FROM users WHERE email = :email";
         try (Connection c = db.getSql2o().open()) {

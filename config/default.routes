@@ -1,9 +1,6 @@
 use ru.lesqm.rescb.controllers
 
 GET  $/assets/(.*)  asset(1)
-
-// Resctict access
-// GET  RestrictController.restrict()
   
 // Language process
 $/                            LangController.noLangOnUrl()
@@ -48,5 +45,9 @@ POST $/(ru|en)/profile/tezis       ProfileController.tezisProcess()
 GET  $/download/(\d+)              UploadController.download(1:long)
 POST $/ajax/upload                 UploadController.uploadProcess()
 
+// Resctict access
+GET  RestrictController.restrict()
+
 // Admin pages
-GET  $/admin/listall               AdminController.listAllTezises()
+GET  $/admin/thesises/all               AdminController.listAllTezises()
+GET  $/admin/users/all                  AdminController.listAllUsers()

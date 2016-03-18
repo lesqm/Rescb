@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>List  all</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body { font-size: 14px; border-collapse: collapse; }
+            table { border: 1px gray solid; border-spacing: 0; }
+            tr { padding: 0; margin: 0;}
+            td { padding: 5px; }
+            tr:hover {background-color: #efeded; }
+            
+        </style>
+    </head>
+    <body>
+        <div>
+            <table>
+                <tr>
+                    <td>#</td>
+                    <td>ФИО</td>
+                    <td>Email</td>
+                    <td>Страна</td>
+                    <td>Город</td>
+                    <td>Место работы, учебы</td>
+                    <td>Должность</td>
+                    <td>Ученая степень</td>
+                    <td>Рабочий телефон</td>
+                </tr>
+
+                <% var users = ctx.get('users'); %>
+                <% for each (var u in users) { %>
+                <tr>
+                    <td><# u.getId() #></td>
+                    <td><# u.getLastname() #> <# u.getFirstname() #> <# u.getMiddlename() #></td>
+                    <td><# u.getEmail() #></td>
+                    <td><# u.getCountry() #></td>
+                    <td><# u.getCity() #></td>
+                    <td><# u.getJob() #></td>
+                    <td><# u.getPosition() #></td>
+                    <td><# u.getDegree() #></td>
+                    <td><# u.getContactphone() #></td>                  
+                </tr>
+                <% } %>
+            </table>
+        </div>
+    </body>
+</html>
