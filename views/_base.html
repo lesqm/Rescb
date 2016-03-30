@@ -32,20 +32,20 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-10 rescb-head-1"><a href="@{that(this.lang, '')}"><img src="@{asset('i/rescb-logo.png')}" width="20%" /></a></div>
-                <div class="col-md-2 rescb-lang">
+                <div class="col-md-9 rescb-head-1"><a href="@{that(this.lang, '')}"><img src="@{asset('i/rescb-logo.png')}" width="20%" /></a></div>
+                <div class="col-md-3 rescb-lang">
                     <a href="@{that('ru', '')}" title="Русский">
                         <% if(this.lang === 'ru') { %>
-                        <img src="@{asset('i/ru.png')}" alt="Русский" width="20px" />Рус
+                        <img src="@{asset('i/ru.png')}" alt="Русский" width="20px" />Русский
                         <% } else { %>
-                        <img src="@{asset('i/ru.png')}" class="img-filter-gray" alt="Русский" width="20px" />Рус
+                        <img src="@{asset('i/ru.png')}" class="img-filter-gray" alt="Русский" width="20px" />Русский
                         <% } %>
                     </a>
                     <a href="@{that('en', '')}" title="English">
                         <% if(this.lang === 'en') { %>
-                        <img src="@{asset('i/en.png')}" alt="English" width="20px" />Eng
+                        <img src="@{asset('i/en.png')}" alt="English" width="20px" />English
                         <% } else { %>
-                        <img src="@{asset('i/en.png')}" class="img-filter-gray" alt="English" width="20px" />Eng
+                        <img src="@{asset('i/en.png')}" class="img-filter-gray" alt="English" width="20px" />English
                         <% } %>
                     </a>
                 </div>
@@ -116,8 +116,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9 col-md-offset-3 rescb-footer">
-						<% if(this.lang === 'ru') { %>РЭСХС-22 © 2016 Дальневосточный Федеральный Университет, Владивосток / <a href="#">Авторы сайта</a><% } 
-						else { %>RESCB-22 © 2016 Far Eastern Federal University, Vladivostok / <a href="#">Website authors</a><% } %>
+						<% if(this.lang === 'ru') { %>РЭСХС-22 © 2016 Дальневосточный Федеральный Университет, Владивосток<% } 
+						else { %>RESCB-22 © 2016 Far Eastern Federal University, Vladivostok<% } %>
 					</div>
                 </div>
             </div>

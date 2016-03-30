@@ -51,6 +51,7 @@
                             <label for="theses-file" class="control-label col-sm-3 required">Файл тезисов</label>
                             <div class="col-sm-9"><input id="theses-file" name="theses-file" required="required" class="form-control" type="file"></div>
                             <input type="hidden" name="tezisId" value=""/>
+							<span id="helpBlock" class="help-block col-sm-9 col-sm-offset-3 bg-warning"><b>Внимание!</b> Тезисы должны быть подготовлены в программе Microsoft Office Word и иметь расширение .doc или .docx, в противном случае ваши тезисы не будут рассмотрены</span>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-3">
@@ -89,7 +90,7 @@
 
             var statusStr = function(form) {
             switch(form) {
-            case 0: return "Отправленно на проверку";
+            case 0: return "Отправлено на проверку";
             case 1: return "Принято";
             case 2: return "Отклонено";
             default: return "Неизвестно";
