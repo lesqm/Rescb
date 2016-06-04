@@ -48,6 +48,13 @@ public class Application {
         }
     }
 
+    public static void delete(Database db, Application app) {
+        String sql = "DELETE applications WHERE id = :id";
+        try (Connection c = db.getSql2o().open()) {
+            c.createQuery(sql).bind(app).executeUpdate();
+        }
+    }
+
     public void save(Database db) {
         if (id < 0) {
             put(db, this);

@@ -141,4 +141,22 @@ public class ProfileController extends Controller {
 
         return ok(new JSONObject().put("status", "ok").put("url", urls.that(ctx.get("lang"), "profile")).toString()).asJson();
     }
+    
+    public Response tezisDeleteProcess(long aid) {
+        User u = (User) ctx.getSession().get("user");
+
+        if (u == null) {
+            return forbidden("You don't have permissions");
+        }
+        
+        Application app = Application.getById(db, aid);
+        
+        if(app.getUserId() != u.getId()) {
+            return forbidden("You don't have permissions");
+        }
+        
+        Application.delete(db, app);
+        
+        return temporaryRedirect(urls.that(ctx.get("lang"), "profile"));
+    }
 }

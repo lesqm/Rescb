@@ -107,6 +107,7 @@
                     <td>Заголовок</td>
                     <td>Файл</td>
                     <td>Статус</td>
+                    <td>Действие</td>
                 </tr>
 
                 <% for each (var a in apps) { %>
@@ -116,6 +117,7 @@
                     <td><# a.getTitle() #></td>
                     <td><a href="@{that('download', a.getFileId())}">Загрузить</a></td>
                     <td><# statusStr(a.getStatus()) #></td>
+                    <td><a href="@{that(this.lang, 'profile', 'tezis', 'delete', a.getId())}">Удалить</a></td>
                 </tr>
                 <% } %>
 
