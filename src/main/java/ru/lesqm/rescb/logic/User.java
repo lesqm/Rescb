@@ -23,6 +23,8 @@ public class User {
     private int gender = 0;
     private Date birthday = null;
 
+    private int tezisNumber = 0;
+
     public static User getById(Database db, long id) {
         String sql = "SELECT * FROM users WHERE id = :id";
         try (Connection c = db.getSql2o().open()) {
@@ -34,6 +36,16 @@ public class User {
 
     public static List<User> getAll(Database db) {
         String sql = "SELECT * FROM users";
+        try (Connection c = db.getSql2o().open()) {
+            return c.createQuery(sql)
+                    .executeAndFetch(User.class);
+        }
+    }
+
+    public static List<User> getAllWithHaveTezis(Database db) {
+        String sql = "SELECT users.*, count(applications.id) AS tezisNumber FROM users "
+                + "LEFT JOIN applications ON users.id = applications.userId "
+                + "GROUP BY users.id";
         try (Connection c = db.getSql2o().open()) {
             return c.createQuery(sql)
                     .executeAndFetch(User.class);
@@ -210,5 +222,13 @@ public class User {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+
+    public int getTezisNumber() {
+        return tezisNumber;
+    }
+
+    public void setTezisNumber(int tezisNumber) {
+        this.tezisNumber = tezisNumber;
     }
 }

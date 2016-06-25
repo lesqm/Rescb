@@ -26,6 +26,7 @@
                     <td>Должность</td>
                     <td>Ученая степень</td>
                     <td>Рабочий телефон</td>
+                    <td>Поданных тезисов</td>
                 </tr>
 
                 <% var users = ctx.get('users'); %>
@@ -39,7 +40,8 @@
                     <td><# u.getJob() #></td>
                     <td><# u.getPosition() #></td>
                     <td><# u.getDegree() #></td>
-                    <td><# u.getContactphone() #></td>                  
+                    <td><# u.getContactphone() #></td> 
+                    <td><# u.getTezisNumber() #></td>                 
                 </tr>
                 <% } %>
             </table>

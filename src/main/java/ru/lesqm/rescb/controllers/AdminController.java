@@ -24,7 +24,7 @@ public class AdminController extends Controller {
     }
 
     public Response listAllUsers() throws TemplateNotFoundException, TemplateRenderException {
-        List<User> users = User.getAll(db);
+        List<User> users = User.getAllWithHaveTezis(db);
 
         ctx.put("users", users);
 
