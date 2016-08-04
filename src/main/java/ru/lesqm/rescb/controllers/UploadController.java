@@ -36,7 +36,7 @@ public class UploadController extends Controller {
     @Inject
     public Configuration config;
 
-    private File getDataFile(String uploadId) {
+    public File getDataFile(String uploadId) {
         String uploadDir = config.get("rescb.data.dir", uploadDirDefault) + File.separator + uploadDirDefault;
 
         return new File(uploadDir + uploadId);

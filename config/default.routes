@@ -51,4 +51,5 @@ GET  RestrictController.restrict()
 
 // Admin pages
 GET  $/admin/thesises/all               AdminController.listAllTezises()
+GET  $/admin/thesises/export            AdminController.exportZip()
 GET  $/admin/users/all                  AdminController.listAllUsers()
