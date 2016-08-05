@@ -82,7 +82,7 @@ public class AdminController extends Controller {
             User u = t.getUser();
             TezisFile tezisFile = TezisFile.getById(db, t.getFileId());
 
-            String userName = u.getFirstname() + "-" + u.getMiddlename() + "-" + u.getLastname();
+            String userName = u.getLastname() + "-" + u.getMiddlename() + "-" + u.getFirstname();
             ZipEntry ze = new ZipEntry(getSectionName(t.getSection()) + File.separator + userName + "-" + t.getId() + "-" + tezisFile.getHash());
 
             zout.putNextEntry(ze);
